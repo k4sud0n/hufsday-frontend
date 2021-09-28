@@ -15,7 +15,7 @@
             "
           >
             <svg
-              class="w-10 h-10 text-green-900"
+              class="w-9 h-9 text-green-900"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -46,7 +46,7 @@
             "
           >
             <svg
-              class="w-10 h-10 text-green-900"
+              class="w-9 h-9 text-green-900"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -77,7 +77,7 @@
             "
           >
             <svg
-              class="w-12 h-12 text-green-900"
+              class="w-9 h-9 text-green-900"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -111,7 +111,7 @@
             "
           >
             <svg
-              class="w-10 h-10 text-green-900"
+              class="w-9 h-9 text-green-900"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

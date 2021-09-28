@@ -1,6 +1,6 @@
 <template>
   <div class="rounded border border-gray-200 overflow-hidden">
-    <div class="bg-green-600 text-white px-3 py-2">
+    <div class="bg-green-600 text-white p-3">
       <svg
         class="w-6 h-6 float-left"
         fill="none"
@@ -18,11 +18,11 @@
       <div class="ml-7">메뉴</div>
     </div>
 
-    <div class="px-3 py-2 bg-green-100">
+    <div class="p-3 bg-green-100">
       <div class="text-green-900 font-medium">세부메뉴</div>
     </div>
 
-    <div class="px-3 py-1 bg-white border-b border-gray-200">
+    <div class="p-2 bg-white border-b border-gray-200">
       <svg
         class="w-4 h-4 text-green-900 float-left mt-1"
         fill="none"
@@ -40,7 +40,7 @@
       <div>목록1</div>
     </div>
 
-    <div class="px-3 py-1 bg-white border-b border-gray-200">
+    <div class="p-2 bg-white border-b border-gray-200">
       <svg
         class="w-4 h-4 text-green-900 float-left mt-1"
         fill="none"
@@ -58,7 +58,7 @@
       <div>목록1</div>
     </div>
 
-    <div class="px-3 py-1 bg-white">
+    <div class="p-2 bg-white">
       <svg
         class="w-4 h-4 text-green-900 float-left mt-1"
         fill="none"
@@ -76,11 +76,11 @@
       <div>목록1</div>
     </div>
 
-    <div class="px-3 py-2 bg-green-100">
+    <div class="p-3 bg-green-100">
       <div class="text-green-900 font-medium">세부메뉴</div>
     </div>
 
-    <div class="px-3 py-1 bg-white border-b border-gray-200">
+    <div class="p-2 bg-white border-b border-gray-200">
       <svg
         class="w-4 h-4 text-green-900 float-left mt-1"
         fill="none"
@@ -98,7 +98,7 @@
       <div>목록1</div>
     </div>
 
-    <div class="px-3 py-1 bg-white border-b border-gray-200">
+    <div class="p-2 bg-white border-b border-gray-200">
       <svg
         class="w-4 h-4 text-green-900 float-left mt-1"
         fill="none"
@@ -116,7 +116,7 @@
       <div>목록1</div>
     </div>
 
-    <div class="px-3 py-1 bg-white border-b border-gray-200">
+    <div class="p-2 bg-white border-b border-gray-200">
       <svg
         class="w-4 h-4 text-green-900 float-left mt-1"
         fill="none"
@@ -134,7 +134,7 @@
       <div>목록1</div>
     </div>
 
-    <div class="px-3 py-1 bg-white">
+    <div class="p-2 bg-white">
       <svg
         class="w-4 h-4 text-green-900 float-left mt-1"
         fill="none"

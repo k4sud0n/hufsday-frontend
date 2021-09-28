@@ -17,7 +17,7 @@
     <div class="float-left mr-1">공지사항:</div>
     <div>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac quam
-      ultrices, sollicitu...
+      ultrices, solli...
     </div>
   </div>
 </template>

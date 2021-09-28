@@ -1,5 +1,5 @@
 <template>
-  <div class="flex mt-5 md:mx-24 md:space-x-4">
+  <div class="flex mt-5 md:mx-24 md:space-x-6">
     <LeftContainer />
     <MainContainer />
     <RightContainer />

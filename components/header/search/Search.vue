@@ -1,9 +1,6 @@
 <template>
   <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-    <button
-      class="absolute"
-      style="margin-top: 0.05rem; margin-left: -4.5rem"
-    >
+    <div class="absolute" style="margin-top: 0.05rem; margin-left: -5.5rem">
       <svg
         class="w-5 h-5 text-gray-200"
         fill="none"
@@ -18,11 +15,11 @@
           d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
         ></path>
       </svg>
-    </button>
+    </div>
     <input
       placeholder="검색"
       type="text"
-      class="rounded-full w-48 h-10 pl-10 border border-gray-200 text-sm p-3"
+      class="rounded-full w-56 h-10 pl-10 border border-gray-200 text-sm p-3"
     />
   </nav>
 </template>

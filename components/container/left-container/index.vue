@@ -1,5 +1,5 @@
 <template>
-  <div class="invisible md:visible md:flex-none md:w-40">
+  <div class="invisible md:visible md:flex-none md:w-44">
     <Menu />
   </div>
 </template>
