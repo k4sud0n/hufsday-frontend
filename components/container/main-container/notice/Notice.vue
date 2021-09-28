@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded p-3">
+  <div class="bg-white rounded p-3 border border-gray-200">
     <svg
       class="w-6 h-6 float-left mr-1"
       fill="none"
@@ -17,7 +17,7 @@
     <div class="float-left mr-1">공지사항:</div>
     <div>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac quam
-      ultrices, sollicitudin ...
+      ultrices, sollicitu...
     </div>
   </div>
 </template>

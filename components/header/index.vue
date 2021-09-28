@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import Logo from './Logo.vue'
-import TextLogo from './TextLogo.vue'
-import SideMenu from './SideSearch.vue'
+import Logo from './logo/Logo.vue'
+import TextLogo from './logo/TextLogo.vue'
+import SideMenu from './search/Search.vue'
 
 export default {
   components: {

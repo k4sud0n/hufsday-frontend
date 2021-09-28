@@ -1,6 +1,6 @@
 <template>
-  <div class="invisible md:visible md:flex-none md:w-40">
-    <div class="bg-green-600 text-white px-3 py-2 rounded-t-lg">
+  <div class="rounded border border-gray-200 overflow-hidden">
+    <div class="bg-green-600 text-white px-3 py-2">
       <svg
         class="w-6 h-6 float-left"
         fill="none"
@@ -134,7 +134,7 @@
       <div>목록1</div>
     </div>
 
-    <div class="px-3 py-1 bg-white border-b border-gray-200 rounded-b-lg">
+    <div class="px-3 py-1 bg-white">
       <svg
         class="w-4 h-4 text-green-900 float-left mt-1"
         fill="none"
