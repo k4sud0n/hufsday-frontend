@@ -1,5 +1,5 @@
 <template>
-  <div class="ml-2 text-xl text-green-700 font-medium">HUFSDAY</div>
+  <div class="ml-1.5 text-2xl text-green-900 font-semibold">HUFSDAY</div>
 </template>
 
 <script>

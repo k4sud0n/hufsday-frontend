@@ -30,7 +30,9 @@
             </svg>
           </div>
         </div>
-        <div class="flex justify-center mt-1">시간표</div>
+        <div class="flex justify-center mt-1 text-green-900 font-semibold text-sm">
+          시간표
+        </div>
       </div>
       <div class="flex-auto border-r border-gray-200">
         <div class="flex justify-center">
@@ -61,7 +63,42 @@
             </svg>
           </div>
         </div>
-        <div class="flex justify-center mt-1">열람실</div>
+        <div class="flex justify-center mt-1 text-green-900 font-semibold text-sm">
+          열람실
+        </div>
+      </div>
+      <div class="flex-auto border-r border-gray-200">
+        <div class="flex justify-center">
+          <div
+            class="
+              w-16
+              h-16
+              bg-green-100
+              rounded
+              flex
+              justify-center
+              items-center
+            "
+          >
+            <svg
+              class="w-9 h-9 text-green-900"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <div class="flex justify-center mt-1 text-green-900 font-semibold text-sm">
+          교내식당
+        </div>
       </div>
       <div class="flex-auto border-r border-gray-200">
         <div class="flex justify-center">
@@ -95,7 +132,9 @@
             </svg>
           </div>
         </div>
-        <div class="flex justify-center mt-1">셔틀</div>
+        <div class="flex justify-center mt-1 text-green-900 font-semibold text-sm">
+          셔틀
+        </div>
       </div>
       <div class="flex-auto">
         <div class="flex justify-center">
@@ -126,7 +165,9 @@
             </svg>
           </div>
         </div>
-        <div class="flex justify-center mt-1">교내공지</div>
+        <div class="flex justify-center mt-1 text-green-900 font-semibold text-sm">
+          교내공지
+        </div>
       </div>
     </div>
   </div>

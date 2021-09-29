@@ -1,18 +1,28 @@
 <template>
-  <div class="mt-4 flex space-x-4">
-    <SeoulFreeboard />
-    <GlobalFreeboard />
+  <div>
+    <div class="mt-4 flex space-x-4">
+      <SeoulFree />
+      <GlobalFree />
+    </div>
+    <div class="mt-4 flex space-x-4">
+      <Wall />
+      <Humor />
+    </div>
   </div>
 </template>
 
 <script>
-import SeoulFreeboard from './seoul-freeboard/SeoulFreeboard.vue'
-import GlobalFreeboard from './global-freeboard/GlobalFreeboard.vue'
+import SeoulFree from './seoul-free/SeoulFree.vue'
+import GlobalFree from './global-free/GlobalFree.vue'
+import Humor from './humor/Humor.vue'
+import Wall from './wall/Wall.vue'
 
 export default {
   components: {
-    SeoulFreeboard,
-    GlobalFreeboard,
+    SeoulFree,
+    GlobalFree,
+    Wall,
+    Humor,
   },
 }
 </script>
