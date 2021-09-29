@@ -29,18 +29,26 @@
         더보기
       </button>
     </div>
-    <div>
-      <div class="border-b border-gray-200 px-3 py-2.5 text-sm">
-        Lorem ipsum dolor sit amet, consectetur adi..
+    <div class="flex px-3 py-2">
+      <div class="flex-1 p-1 mb-0.5">
+        <img class="p-2" src="https://picsum.photos/225/300" />
+        <div class="flex justify-center text-sm">Lorem ipsum</div>
+        <div class="flex justify-center text-sm text-green-900">15000원</div>
       </div>
-      <div class="border-b border-gray-200 px-3 py-2.5 text-sm">
-        Lorem ipsum dolor sit amet, consectetur adi..
+      <div class="flex-1 p-1 mb-0.5">
+        <img class="p-2" src="https://picsum.photos/225/300" />
+        <div class="flex justify-center text-sm">Lorem ipsum</div>
+        <div class="flex justify-center text-sm text-green-900">15000원</div>
       </div>
-      <div class="border-b border-gray-200 px-3 py-2.5 text-sm">
-        Lorem ipsum dolor sit amet, consectetur adi..
+      <div class="flex-1 p-1 mb-0.5">
+        <img class="p-2" src="https://picsum.photos/225/300" />
+        <div class="flex justify-center text-sm">Lorem ipsum</div>
+        <div class="flex justify-center text-sm text-green-900">15000원</div>
       </div>
-      <div class="px-3 py-2.5 text-sm">
-        Lorem ipsum dolor sit amet, consectetur adi..
+      <div class="flex-1 p-1 mb-0.5">
+        <img class="p-2" src="https://picsum.photos/225/300" />
+        <div class="flex justify-center text-sm">Lorem ipsum</div>
+        <div class="flex justify-center text-sm text-green-900">15000원</div>
       </div>
     </div>
   </div>

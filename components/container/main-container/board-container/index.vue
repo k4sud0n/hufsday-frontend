@@ -16,6 +16,7 @@
       <Issue />
       <Club />
     </div>
+    <Advertisement />
     <div class="mt-4 flex space-x-4">
       <Promotion />
       <SellAndBuy />
@@ -27,6 +28,7 @@
 </template>
 
 <script>
+import Advertisement from '../advertisement/Advertisement.vue'
 import SeoulFree from './seoul-free/SeoulFree.vue'
 import GlobalFree from './global-free/GlobalFree.vue'
 import Wall from './wall/Wall.vue'
@@ -49,6 +51,7 @@ export default {
     Humor,
     Issue,
     Club,
+    Advertisement,
     Promotion,
     SellAndBuy,
     Book,
