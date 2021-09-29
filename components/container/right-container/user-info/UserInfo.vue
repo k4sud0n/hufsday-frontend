@@ -4,11 +4,16 @@
       <div class="flex justify-center">
         <div class="rounded bg-gray-100 w-16 h-16"></div>
       </div>
-      <div class="flex justify-center mt-2">홍길동</div>
+      <div class="flex justify-center text-sm mt-2">홍길동</div>
       <div class="flex justify-center text-sm text-gray-500">컴퓨터공학부</div>
+      <div class="flex justify-center">
+        <div class="rounded border border-gray-200 text-xs mt-2 text-gray-500 p-1">
+          로그아웃
+        </div>
+      </div>
     </div>
     <div class="flex border-t border-gray-200">
-      <div class="flex flex-auto justify-center p-2.5">
+      <div class="flex flex-auto justify-center p-2">
         <svg
           class="w-5 h-5"
           fill="none"
@@ -25,7 +30,7 @@
         </svg>
       </div>
       <div class="border-r border-gray-200"></div>
-      <div class="flex flex-auto justify-center p-2.5">
+      <div class="flex flex-auto justify-center p-2">
         <svg
           class="w-5 h-5"
           fill="none"
@@ -42,7 +47,7 @@
         </svg>
       </div>
       <div class="border-r border-gray-200"></div>
-      <div class="flex flex-auto justify-center p-2.5">
+      <div class="flex flex-auto justify-center p-2">
         <svg
           class="w-5 h-5"
           fill="none"
