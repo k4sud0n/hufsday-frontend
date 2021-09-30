@@ -1,5 +1,5 @@
 <template>
-  <div class="invisible md:visible sm:invisible md:flex-none md:w-56">
+  <div class="hidden lg:block lg:flex-none lg:w-56">
     <UserInfo />
     <MyMenu />
     <Popular />

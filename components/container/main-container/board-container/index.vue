@@ -1,27 +1,27 @@
 <template>
   <div>
-    <div class="mt-4 flex space-x-4">
+    <div class="mt-4 md:flex md:space-x-4">
       <SeoulFree />
       <GlobalFree />
     </div>
-    <div class="mt-4 flex space-x-4">
+    <div class="mt-4 md:flex md:space-x-4">
       <Wall />
       <Freshman />
     </div>
-    <div class="mt-4 flex space-x-4">
+    <div class="mt-4 md:flex md:space-x-4">
       <Graduate />
       <Humor />
     </div>
-    <div class="mt-4 flex space-x-4">
+    <div class="mt-4 md:flex md:space-x-4">
       <Issue />
       <Club />
     </div>
     <Advertisement />
-    <div class="mt-4 flex space-x-4">
+    <div class="mt-4 md:flex md:space-x-4">
       <Promotion />
-      <SellAndBuy />
+      <BuyAndSell />
     </div>
-    <div class="mt-4 flex space-x-4">
+    <div class="mt-4 md:flex md:space-x-4">
       <Book />
     </div>
   </div>
@@ -38,7 +38,7 @@ import Humor from './humor/Humor.vue'
 import Issue from './issue/Issue.vue'
 import Club from './club/Club.vue'
 import Promotion from './promotion/Promotion.vue'
-import SellAndBuy from './sell-and-buy/SellAndBuy.vue'
+import BuyAndSell from './buy-and-sell/BuyAndSell.vue'
 import Book from './book/Book.vue'
 
 export default {
@@ -53,7 +53,7 @@ export default {
     Club,
     Advertisement,
     Promotion,
-    SellAndBuy,
+    BuyAndSell,
     Book,
   },
 }

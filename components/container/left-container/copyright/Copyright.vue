@@ -1,5 +1,9 @@
 <template>
-  <div class="fixed bottom-0">Sticky Heading 1</div>
+  <div class="px-1 py-3">
+    <div class="text-xs text-gray-400">
+      ⓒ {{ getCurrentYear }}. HUFSDAY all rights reserved.
+    </div>
+  </div>
 </template>
 
 <script>

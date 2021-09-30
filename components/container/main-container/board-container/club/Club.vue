@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-1 bg-white rounded border border-gray-200">
+  <div class="mt-4 md:mt-auto flex-1 bg-white rounded border border-gray-200">
     <div
       class="
         flex
