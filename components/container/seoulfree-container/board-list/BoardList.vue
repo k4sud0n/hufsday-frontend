@@ -69,7 +69,7 @@
       >
         <div>
           <span class="break-all">{{ post.title }}</span>
-          <span class="font-semibold text-green-900">(10)</span>
+          <span class="-mr-0.5 font-semibold text-green-900">(10)</span>
         </div>
         <div class="flex mt-1">
           <div class="text-xs mr-1.5">익명</div>
