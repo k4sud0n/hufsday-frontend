@@ -32,23 +32,39 @@
     <div class="flex justify-around px-3 py-2">
       <div class="p-1 mb-0.5">
         <img class="p-1" src="https://picsum.photos/150/200" />
-        <div class="flex justify-center text-sm">Lorem ipsum</div>
-        <div class="flex justify-center text-sm text-green-900">15000원</div>
+        <div class="flex justify-center text-center text-sm break-all">
+          Lorem ipsum
+        </div>
+        <div class="flex justify-center text-center text-sm text-green-900">
+          15000원
+        </div>
       </div>
       <div class="p-1 mb-0.5">
         <img class="p-1" src="https://picsum.photos/150/200" />
-        <div class="flex justify-center text-sm">Lorem ipsum</div>
-        <div class="flex justify-center text-sm text-green-900">15000원</div>
+        <div class="flex justify-center text-center text-sm break-all">
+          Lorem ipsum
+        </div>
+        <div class="flex justify-center text-center text-sm text-green-900">
+          15000원
+        </div>
       </div>
       <div class="p-1 mb-0.5">
         <img class="p-1" src="https://picsum.photos/150/200" />
-        <div class="flex justify-center text-sm">Lorem ipsum</div>
-        <div class="flex justify-center text-sm text-green-900">15000원</div>
+        <div class="flex justify-center text-center text-sm break-all">
+          Lorem ipsum
+        </div>
+        <div class="flex justify-center text-center text-sm text-green-900">
+          15000원
+        </div>
       </div>
       <div class="p-1 mb-0.5">
         <img class="p-1" src="https://picsum.photos/150/200" />
-        <div class="flex justify-center text-sm">Lorem ipsum</div>
-        <div class="flex justify-center text-sm text-green-900">15000원</div>
+        <div class="flex justify-center text-center text-sm break-all">
+          Lorem ipsum
+        </div>
+        <div class="flex justify-center text-center text-sm text-green-900">
+          15000원
+        </div>
       </div>
     </div>
   </div>

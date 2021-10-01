@@ -67,8 +67,9 @@
         :key="post.id"
         class="px-4 py-3 border-b border-gray-200"
       >
-        <div class="">
-          {{ post.title }}(10)
+        <div>
+          <span class="break-all">{{ post.title }}</span>
+          <span class="font-semibold text-green-900">(10)</span>
         </div>
         <div class="flex mt-1">
           <div class="text-xs mr-1.5">익명</div>

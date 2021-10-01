@@ -3,65 +3,75 @@
     <div class="bg-white rounded mt-4 border border-gray-200">
       <div class="p-5 border-b border-gray-200">
         <div class="text-xl font-bold">글 제목 어쩌구 저쩌구</div>
-        <div class="flex mt-3">
-          <div class="text-xs mr-1.5 font-semibold">익명</div>
-          <div class="text-xs mr-1.5 text-gray-500">1분 전</div>
-          <div class="flex items-center text-xs mr-1.5 text-gray-500">
-            <svg
-              class="w-3.5 h-3.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-              ></path>
-            </svg>
-            100
+        <div class="flex justify-between mt-3">
+          <div class="flex">
+            <div class="flex items-center text-xs mr-1.5 font-semibold">
+              익명
+            </div>
+            <div class="flex items-center text-xs mr-1.5 text-gray-500">
+              1분 전
+            </div>
+            <div class="flex items-center text-xs mr-1.5 text-gray-500">
+              <svg
+                class="w-3.5 h-3.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                ></path>
+              </svg>
+              100
+            </div>
+            <div class="flex items-center text-xs mr-1.5 text-gray-500">
+              <svg
+                class="w-3.5 h-3.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
+                ></path>
+              </svg>
+              100
+            </div>
+            <div class="flex items-center text-xs text-gray-500">
+              <svg
+                class="w-3.5 h-3.5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                ></path>
+              </svg>
+              10
+            </div>
           </div>
-          <div class="flex items-center text-xs mr-1.5 text-gray-500">
-            <svg
-              class="w-3.5 h-3.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
-              ></path>
-            </svg>
-            100
-          </div>
-          <div class="flex items-center text-xs text-gray-500">
-            <svg
-              class="w-3.5 h-3.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-              ></path>
-            </svg>
-            10
+          <div class="flex text-xs">
+            <div class="text-xs text-gray-500 mr-2">쪽지</div>
+            <div class="text-xs text-gray-500">신고</div>
           </div>
         </div>
       </div>
@@ -180,16 +190,24 @@
         <div>개</div>
       </div>
       <div class="p-5">
-        <div class="flex">
-          <div class="text-xs font-semibold">익명</div>
-          <div class="text-xs ml-1 text-gray-500">1분 전</div>
+        <div class="flex justify-between">
+          <div class="flex">
+            <div class="text-xs font-semibold">익명</div>
+            <div class="text-xs ml-1 text-gray-500">1분 전</div>
+          </div>
+          <div class="flex">
+            <div class="text-xs text-gray-500 mr-2">답글</div>
+            <div class="text-xs text-gray-500 mr-2">추천</div>
+            <div class="text-xs text-gray-500 mr-2">쪽지</div>
+            <div class="text-xs text-gray-500">신고</div>
+          </div>
         </div>
-        <div class="text-sm mt-1">
+        <div class="text-sm mt-1.5">
           공무원의 신분과 정치적 중립성은 법률이 정하는 바에 의하여 보장된다.
           헌법재판소 재판관은 탄핵 또는 금고 이상의 형의 선고에 의하지
           아니하고는 파면되지 아니한다.
         </div>
-        <div class="flex text-xs mt-1 text-green-900">
+        <div class="flex text-xs mt-1.5 text-green-900">
           <div class="flex items-center mr-1">
             <svg
               class="w-3.5 h-3.5"
