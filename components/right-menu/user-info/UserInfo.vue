@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import ProfileImage from '../../../../static/image/profile/profile.png'
+import ProfileImage from '../../../static/image/profile/profile.png'
 
 export default {
   data() {

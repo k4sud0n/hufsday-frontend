@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Advertisement from '../../advertisement/index.vue'
+import Advertisement from '../advertisement/index.vue'
 import UserInfo from './user-info/UserInfo.vue'
 import MyMenu from './my-menu/MyMenu.vue'
 import Popular from './popular/Popular.vue'
