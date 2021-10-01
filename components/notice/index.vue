@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded p-3 border border-gray-200">
+  <div class="flex-none bg-white rounded p-3 border border-gray-200">
     <svg
       class="w-6 h-6 float-left mr-0.5 -mt-0.5 text-green-900"
       fill="none"

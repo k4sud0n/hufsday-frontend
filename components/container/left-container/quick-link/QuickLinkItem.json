@@ -4,19 +4,19 @@
     "link": "https://wis.hufs.ac.kr/src08/jsp/index.jsp"
   },
   {
-    "title": "수강신청",
-    "link": "https://hufs.ac.kr"
+    "title": "학사종합지원센터",
+    "link": "http://haksa.hufs.ac.kr"
   },
   {
     "title": "기숙사",
-    "link": "https://hufs.ac.kr"
+    "link": "http://builder.hufs.ac.kr/user/mhdorm3/"
   },
   {
-    "title": "강의평가",
-    "link": "https://hufs.ac.kr"
+    "title": "이클래스",
+    "link": "https://eclass.hufs.ac.kr/ilos/main/main_form.acl"
   },
   {
     "title": "학사일정",
-    "link": "https://hufs.ac.kr"
+    "link": "http://builder.hufs.ac.kr/user/indexSub.action?codyMenuSeq=37069&siteId=hufs&menuType=T&uId=4&sortC"
   }
 ]

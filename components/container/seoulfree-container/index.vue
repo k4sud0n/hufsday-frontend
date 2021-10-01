@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Notice from '../../notice/Notice.vue'
+import Notice from '../../notice/index.vue'
 import BoardList from './board-list/BoardList.vue'
 
 export default {

@@ -2,7 +2,9 @@
   <header class="border-b border-gray-200 bg-white">
     <div class="flex md:mx-20 p-3 justify-between">
       <List />
-      <Logo />
+      <NuxtLink to="/">
+        <Logo />
+      </NuxtLink>
       <Search />
     </div>
   </header>

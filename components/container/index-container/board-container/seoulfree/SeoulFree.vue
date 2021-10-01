@@ -11,23 +11,24 @@
       "
     >
       <div class="mt-1 text-sm">서울캠 자유게시판</div>
-      <button
-        class="
-          ml-auto
-          rounded
-          bg-transparent
-          border border-green-900
-          hover:bg-green-900 hover:text-white
-          active:bg-green-800
-          text-green-900
-          font-semibold
-          px-3
-          py-1
-          text-sm
-        "
-      >
-        더보기
-      </button>
+      <NuxtLink class="ml-auto" to="/seoulfree">
+        <button
+          class="
+            rounded
+            bg-transparent
+            border border-green-900
+            hover:bg-green-900 hover:text-white
+            active:bg-green-800
+            text-green-900
+            font-semibold
+            px-3
+            py-1
+            text-sm
+          "
+        >
+          더보기
+        </button>
+      </NuxtLink>
     </div>
     <div>
       <div class="border-b border-gray-200 px-3 py-2.5 text-sm">

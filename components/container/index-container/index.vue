@@ -2,15 +2,17 @@
   <div class="flex-grow">
     <Notice />
     <ToolBox />
-    <Advertisement />
+    <div class="bg-white rounded p-3 border border-gray-200 mt-4">
+      <Advertisement />
+    </div>
     <BoardContainer />
   </div>
 </template>
 
 <script>
-import Notice from './notice/Notice.vue'
+import Advertisement from '../../advertisement/index.vue'
+import Notice from '../../notice/index.vue'
 import ToolBox from './toolbox/ToolBox.vue'
-import Advertisement from './advertisement/Advertisement.vue'
 import BoardContainer from './board-container/index.vue'
 
 export default {
