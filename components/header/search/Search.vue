@@ -12,7 +12,7 @@
     >
       <div class="absolute mt-2.5 ml-3.5">
         <svg
-          class="w-5 h-5 text-gray-200"
+          class="w-5 h-5 text-gray-200 focus:text-green-900"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -29,7 +29,16 @@
       <input
         placeholder="검색"
         type="text"
-        class="rounded-full w-58 h-10 pl-10 border border-gray-200 text-sm p-3"
+        class="
+          rounded-full
+          w-58
+          h-10
+          pl-10
+          border border-gray-200
+          text-sm
+          p-3
+          focus:border-green-900 focus:outline-none
+        "
       />
     </nav>
     <div class="md:hidden">
