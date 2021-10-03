@@ -41,7 +41,7 @@
       <div class="flex justify-between text-xs mt-1 p-2 text-gray-500">
         <div class="flex">
           <svg
-            class="w-4 h-4 mr-1"
+            class="w-4 h-4 mr-0.5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
