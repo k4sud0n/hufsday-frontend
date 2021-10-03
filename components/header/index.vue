@@ -2,7 +2,7 @@
   <header class="border-b border-gray-200 bg-white">
     <div class="flex md:mx-20 p-3 justify-between">
       <List />
-      <NuxtLink to="/">
+      <NuxtLink :to="{ name: 'index' }">
         <Logo />
       </NuxtLink>
       <Search />

@@ -11,7 +11,7 @@
       "
     >
       <div class="mt-1 text-sm">서울캠 자유게시판</div>
-      <NuxtLink class="ml-auto" to="/seoulfree">
+      <NuxtLink class="ml-auto" :to="{ name: 'seoulfree' }">
         <button
           class="
             rounded

@@ -1,8 +1,14 @@
 <template>
   <div>
-    <div class="bg-white rounded mt-4 border border-gray-200">
+    <div
+      class="bg-white rounded mt-4 border-t border-l border-r border-gray-200"
+    >
       <div class="p-5 border-b border-gray-200">
-        <div class="text-xl font-bold">글 제목 어쩌구 저쩌구</div>
+        <div v-if="$fetchState.pending">
+          <div class="animate-pulse bg-green-100 rounded w-2/4 h-7"></div>
+        </div>
+        <div v-else-if="$fetchState.error">이런! 에러가 발생했습니다</div>
+        <div class="text-xl font-bold">{{ post.title }}</div>
         <div class="flex justify-between mt-3">
           <div class="flex">
             <div class="flex items-center text-xs mr-1.5 font-semibold">
@@ -79,32 +85,17 @@
         <Advertisement />
       </div>
       <div class="mt-3 p-5 text-sm border-b border-gray-200">
+        <div v-if="$fetchState.pending">
+          <div class="animate-pulse bg-green-100 rounded w-2/4 h-4 mb-2"></div>
+          <div class="animate-pulse bg-green-100 rounded w-3/4 h-4 mb-2"></div>
+          <div class="animate-pulse bg-green-100 rounded w-1/4 h-4 mb-2"></div>
+          <div class="animate-pulse bg-green-100 rounded w-2/4 h-4"></div>
+        </div>
+        <div v-else-if="$fetchState.error">
+          관리자에게 알려주시면 감사하겠습니다. 코딩 싫어요 ㅠ
+        </div>
         <div>
-          인간의 일월과 무엇이 따뜻한 것은 것이다. 얼음 튼튼하며, 바로 싶이
-          인간이 없는 유소년에게서 천지는 사막이다. 피가 뜨거운지라, 열락의
-          생생하며, 꽃 별과 동산에는 부패뿐이다. 쓸쓸한 커다란 싶이 어디 심장은
-          그러므로 바이며, 길지 사막이다. 꽃 평화스러운 만천하의 귀는
-          방황하여도, 사막이다. 청춘의 듣기만 반짝이는 꽃 물방아 봄날의 열락의
-          어디 위하여서 아름다우냐? 영원히 보배를 불어 것이다.보라, 황금시대다.
-          얼마나 따뜻한 같은 들어 있는 사막이다. 그와 인생을 불어 바이며, 얼마나
-          힘차게 심장의 안고, 위하여서. 유소년에게서 투명하되 이상의 인생에
-          바이며, 굳세게 하였으며, 우리는 그리하였는가? 노래하며 꽃 곧 너의 눈이
-          우리의 생명을 인생에 봄바람이다. 가슴에 싶이 그것을 능히 못할 설산에서
-          천고에 있으랴? 오직 간에 심장은 뿐이다. 소담스러운 청춘의 온갖 남는
-          속에서 쓸쓸한 원대하고, 얼마나 이것이다. 그와 때에, 눈이 이 전인 가는
-          있을 동산에는 불어 때문이다. 오직 그들에게 그들의 만천하의 것이다.
-          무엇을 싸인 그것은 앞이 사랑의 가는 더운지라 그들에게 때까지 힘있다.
-          무엇을 없으면 무엇이 봄바람을 보배를 찬미를 천하를 아니다. 반짝이는
-          뜨거운지라, 소금이라 있으랴? 용감하고 하였으며, 따뜻한 뜨고, 있는가?
-          창공에 이상, 새 어디 크고 할지라도 운다. 거선의 밝은 날카로우나 꽃
-          밥을 미인을 그것을 타오르고 칼이다. 있음으로써 있는 인간의 같이
-          뿐이다. 오아이스도 구하지 이상의 위하여 우리 끓는다. 이성은 무한한
-          얼마나 봄바람이다. 이상이 풀이 인생을 피가 쓸쓸하랴? 같으며, 목숨을
-          우리 오아이스도 타오르고 때까지 있는 사막이다. 이성은 가는 보이는
-          이상이 교향악이다. 풀이 공자는 동력은 가장 맺어, 평화스러운 인간에
-          피가 봄바람이다. 무엇을 끓는 이상, 그리하였는가? 별과 창공에 보이는
-          하는 이상, 그들에게 불어 생명을 아름다우냐? 소리다.이것은 두기 곧
-          이상을 가슴에 그들의 품으며, 유소년에게서 운다.
+          {{ post.body }}
         </div>
         <div class="flex justify-center mt-8">
           <div
@@ -189,7 +180,11 @@
         <div class="ml-1 text-green-900 font-semibold">10</div>
         <div>개</div>
       </div>
-      <div class="p-5">
+      <div
+        v-for="comment in comments"
+        :key="comment.id"
+        class="p-5 border-b border-gray-200"
+      >
         <div class="flex justify-between">
           <div class="flex">
             <div class="text-xs font-semibold">익명</div>
@@ -203,9 +198,7 @@
           </div>
         </div>
         <div class="text-sm mt-1.5">
-          공무원의 신분과 정치적 중립성은 법률이 정하는 바에 의하여 보장된다.
-          헌법재판소 재판관은 탄핵 또는 금고 이상의 형의 선고에 의하지
-          아니하고는 파면되지 아니한다.
+          {{ comment.body }}
         </div>
         <div class="flex text-xs mt-1.5 text-green-900">
           <div class="flex items-center mr-1">
@@ -240,6 +233,24 @@ export default {
   components: {
     Advertisement,
     BoardList,
+  },
+  data() {
+    return {
+      id: this.$route.params.id,
+      post: [],
+      comments: [],
+    }
+  },
+  async fetch() {
+    const postResponse = await this.$axios.get(
+      `https://jsonplaceholder.typicode.com/posts/${this.id}`
+    )
+    this.post = postResponse.data
+
+    const commentResponse = await this.$axios.get(
+      `https://jsonplaceholder.typicode.com/comments?postId=${this.id}`
+    )
+    this.comments = commentResponse.data
   },
 }
 </script>
