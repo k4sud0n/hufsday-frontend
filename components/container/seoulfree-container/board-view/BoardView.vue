@@ -7,8 +7,10 @@
         <div v-if="$fetchState.pending">
           <div class="animate-pulse bg-green-100 rounded w-2/4 h-7"></div>
         </div>
-        <div v-else-if="$fetchState.error">이런! 에러가 발생했습니다</div>
-        <div class="text-xl font-bold">{{ post.title }}</div>
+        <div v-else-if="$fetchState.error" class="text-xl font-bold">
+          이런! 에러가 발생했습니다
+        </div>
+        <div v-else class="text-xl font-bold">{{ post.title }}</div>
         <div class="flex justify-between mt-3">
           <div class="flex">
             <div class="flex items-center text-xs mr-1.5 font-semibold">
@@ -92,10 +94,10 @@
           <div class="animate-pulse bg-green-100 rounded w-2/4 h-4"></div>
         </div>
         <div v-else-if="$fetchState.error">
-          관리자에게 알려주시면 감사하겠습니다. 코딩 싫어요 ㅠ
+          관리자에게 알려주시면 감사하겠습니다.
         </div>
-        <div>
-          {{ post.body }}
+        <div v-else>
+          {{ post.content }}
         </div>
         <div class="flex justify-center mt-8">
           <div
@@ -243,9 +245,9 @@ export default {
   },
   async fetch() {
     const postResponse = await this.$axios.get(
-      `https://jsonplaceholder.typicode.com/posts/${this.id}`
+      `http://localhost:4000/api/seoulfree/${this.id}`
     )
-    this.post = postResponse.data
+    this.post = postResponse.data[0]
 
     const commentResponse = await this.$axios.get(
       `https://jsonplaceholder.typicode.com/comments?postId=${this.id}`
