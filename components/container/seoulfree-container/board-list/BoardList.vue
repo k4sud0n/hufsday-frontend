@@ -89,7 +89,11 @@
           v-for="post in posts"
           v-else
           :key="post.id"
-          :to="{ name: 'seoulfree-id', params: { id: post.id } }"
+          :to="{
+            name: 'seoulfree-id',
+            params: { id: post.id },
+            query: { page: pageNumber },
+          }"
         >
           <div v-if="post.id == routerId">
             <div class="px-4 py-3 border-b border-gray-200 bg-gray-50">
@@ -143,7 +147,10 @@
               </div>
             </div>
           </div>
-          <div v-else class="px-4 py-3 border-b border-gray-200">
+          <div
+            v-else
+            class="px-4 py-3 border-b border-gray-200 hover:bg-gray-50"
+          >
             <div>
               <span class="break-all">{{ post.title }}</span>
               <span class="-mr-0.5 font-semibold text-green-900">(10)</span>
@@ -196,6 +203,153 @@
         </NuxtLink>
       </div>
     </div>
+    <!-- pagination -->
+    <div class="flex justify-center mt-4">
+      <nav
+        class="relative z-0 inline-flex rounded -space-x-px"
+        aria-label="Pagination"
+      >
+        <div v-if="pageNumber === 1">
+          <button
+            class="
+              bg-gray-50
+              relative
+              inline-flex
+              items-center
+              px-2
+              py-2
+              rounded-l-md
+              border border-gray-200
+              bg-white
+              text-sm
+              font-medium
+              text-gray-500
+            "
+            disabled
+            @click="previousPage"
+          >
+            <span class="sr-only">Previous</span>
+            <svg
+              class="h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+        <div v-else>
+          <button
+            class="
+              relative
+              inline-flex
+              items-center
+              px-2
+              py-2
+              rounded-l-md
+              border border-gray-200
+              bg-white
+              text-sm
+              font-medium
+              text-gray-500
+              hover:bg-gray-50
+            "
+            @click="previousPage"
+          >
+            <span class="sr-only">Previous</span>
+            <svg
+              class="h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+        <div v-if="posts.length !== 20">
+          <button
+            class="
+              bg-gray-50
+              relative
+              inline-flex
+              items-center
+              px-2
+              py-2
+              rounded-r-md
+              border border-gray-200
+              bg-white
+              text-sm
+              font-medium
+              text-gray-500
+            "
+            disabled
+            @click="nextPage"
+          >
+            <span class="sr-only">Next</span>
+            <svg
+              class="h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+        <div v-else>
+          <button
+            class="
+              relative
+              inline-flex
+              items-center
+              px-2
+              py-2
+              rounded-r-md
+              border border-gray-200
+              bg-white
+              text-sm
+              font-medium
+              text-gray-500
+              hover:bg-gray-50
+            "
+            @click="nextPage"
+          >
+            <span class="sr-only">Next</span>
+            <svg
+              class="h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+    <!-- pagination end -->
   </div>
 </template>
 
@@ -205,15 +359,39 @@ export default {
     return {
       routerId: this.$route.params.id,
       posts: [],
+      pageNumber: this.$route.query.page || 1,
       fetchOnServer: false,
     }
   },
   async fetch() {
+    const param = {
+      params: {
+        page: this.pageNumber,
+      },
+    }
+
     const response = await this.$axios.get(
-      'http://localhost:4000/api/seoulfree'
+      'http://localhost:4000/api/seoulfree',
+      param
     )
 
-    this.posts = response.data.reverse()
+    this.posts = response.data
+  },
+  methods: {
+    nextPage() {
+      this.pageNumber += 1
+      this.$router.push(`?page=${parseInt(this.pageNumber)}`)
+      this.$fetch()
+    },
+    previousPage() {
+      this.pageNumber -= 1
+      this.$router.push(`?page=${parseInt(this.pageNumber)}`)
+      this.$fetch()
+    },
+    moveToPage(number) {
+      this.pageNumber = number
+      this.$fetch()
+    },
   },
 }
 </script>
