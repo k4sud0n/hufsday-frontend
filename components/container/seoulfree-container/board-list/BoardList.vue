@@ -370,12 +370,9 @@ export default {
       },
     }
 
-    const response = await this.$axios.get(
-      'http://localhost:4000/api/seoulfree',
-      param
-    )
-
-    this.posts = response.data
+    await this.$client.get('/api/seoulfree', param).then((response) => {
+      this.posts = response.data
+    })
   },
   methods: {
     nextPage() {

@@ -1,5 +1,8 @@
 <template>
-  <div class="min-h-screen flex justify-center items-center">
+  <form
+    class="min-h-screen flex justify-center items-center"
+    @submit="formSubmit"
+  >
     <div>
       <div class="flex justify-center">
         <img src="@/static/image/logo.svg" class="w-14 h-14" />
@@ -7,6 +10,7 @@
       <div class="mt-8 text-sm">
         <div class="absolute px-4 py-3 font-semibold text-gray-500">아이디</div>
         <input
+          v-model="user_id"
           placeholder="ILOVEHUFSDAY"
           class="
             rounded
@@ -25,6 +29,7 @@
           비밀번호
         </div>
         <input
+          v-model="password"
           placeholder="•••••••••"
           class="
             rounded
@@ -60,8 +65,9 @@
           <div>ID/PW 찾기</div>
         </div>
       </div>
-      <div
+      <button
         class="
+          w-full
           flex
           justify-center
           items-center
@@ -71,18 +77,45 @@
           border border-gray-200
           bg-green-900
           p-3
+          cursor-pointer
         "
       >
         <div class="font-semibold text-white">로그인</div>
-      </div>
+      </button>
       <div class="flex justify-center mt-5 text-xs text-gray-500">
         아직 HUFSDAY 계정이 없으신가요?
         <div class="ml-0.5 text-green-900">회원가입하기</div>
       </div>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      username: '',
+      password: '',
+    }
+  },
+  methods: {
+    async formSubmit(e) {
+      e.preventDefault()
+
+      try {
+        await this.$client
+          .post('/api/auth/login', {
+            user_id: this.user_id,
+            password: this.password,
+          })
+          .then((response) => {
+            this.$toast.success('로그인 성공!')
+            this.$router.push({ name: 'index' })
+          })
+      } catch (error) {
+        this.$toast.error('아이디 또는 비밀번호를 다시 확인해주세요.')
+      }
+    },
+  },
+}
 </script>

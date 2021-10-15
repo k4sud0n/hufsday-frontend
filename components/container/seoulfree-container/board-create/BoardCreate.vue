@@ -68,6 +68,7 @@ export default {
     return {
       title: '',
       content: '',
+      nickname: '',
     }
   },
   methods: {
@@ -79,12 +80,26 @@ export default {
     },
     async formSubmit(e) {
       e.preventDefault()
-      await this.$axios
-        .post('http://localhost:4000/api/seoulfree/create', {
+
+      await this.$client
+        .get('/api/auth/check')
+        .then((response) => {
+          this.nickname = response.data.nickname
+        })
+        .catch((error) => {
+          if (error.response.status === 403) {
+            this.$router.push({ name: 'login' })
+          }
+        })
+
+      await this.$client
+        .post('/api/seoulfree/create', {
           title: this.title,
           content: this.content,
+          nickname: this.nickname,
         })
         .then((response) => {
+          this.$toast.success('글이 작성되었습니다.')
           this.$router.push(`/seoulfree/${response.data[0]}`)
         })
     },

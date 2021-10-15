@@ -6,14 +6,22 @@
           <img :src="profileImageSrc" />
         </div>
       </div>
-      <div class="flex justify-center text-sm mt-2">홍길동</div>
+      <div class="flex justify-center text-sm mt-2">{{ nickname }}</div>
       <div class="flex justify-center text-sm text-gray-500">컴퓨터공학부</div>
       <div class="flex justify-center">
-        <div
-          class="rounded border border-gray-200 text-xs mt-2 text-gray-500 p-1"
+        <button
+          class="
+            rounded
+            border border-gray-200
+            text-xs
+            mt-2.5
+            text-gray-500
+            p-1
+          "
+          @click="logout"
         >
           로그아웃
-        </div>
+        </button>
       </div>
     </div>
     <div class="flex border-t border-gray-200">
@@ -84,8 +92,27 @@ import ProfileImage from '../../../static/image/profile/profile.png'
 export default {
   data() {
     return {
+      nickname: '',
       profileImageSrc: ProfileImage,
     }
+  },
+  async fetch() {
+    await this.$client
+      .get('/api/auth/check')
+      .then((response) => {
+        this.nickname = response.data.nickname
+      })
+      .catch((error) => {
+        if (error.response.status === 403) {
+          this.$router.push({ name: 'login' })
+        }
+      })
+  },
+  methods: {
+    logout() {
+      this.$client.post('/api/auth/logout')
+      this.$router.push({ name: 'login' })
+    },
   },
 }
 </script>

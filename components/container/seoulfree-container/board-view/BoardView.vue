@@ -244,10 +244,9 @@ export default {
     }
   },
   async fetch() {
-    const postResponse = await this.$axios.get(
-      `http://localhost:4000/api/seoulfree/${this.id}`
-    )
-    this.post = postResponse.data[0]
+    await this.$client.get(`api/seoulfree/${this.id}`).then((response) => {
+      this.post = response.data[0]
+    })
 
     const commentResponse = await this.$axios.get(
       `https://jsonplaceholder.typicode.com/comments?postId=${this.id}`
