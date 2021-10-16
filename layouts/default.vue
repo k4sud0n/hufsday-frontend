@@ -23,6 +23,7 @@ export default {
     RightMenu,
     Footer,
   },
+  middleware: 'auth',
 }
 </script>
 

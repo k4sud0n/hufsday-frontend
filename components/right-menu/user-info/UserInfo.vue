@@ -3,10 +3,12 @@
     <div class="p-4">
       <div class="flex justify-center">
         <div class="rounded bg-gray-200 w-16 h-16 overflow-hidden">
-          <img :src="profileImageSrc" />
+          <img src="@/static/image/profile/profile.png" />
         </div>
       </div>
-      <div class="flex justify-center text-sm mt-2">{{ nickname }}</div>
+      <div class="flex justify-center text-sm mt-2">
+        {{ nickname }}
+      </div>
       <div class="flex justify-center text-sm text-gray-500">컴퓨터공학부</div>
       <div class="flex justify-center">
         <button
@@ -87,31 +89,18 @@
 </template>
 
 <script>
-import ProfileImage from '../../../static/image/profile/profile.png'
-
 export default {
   data() {
     return {
-      nickname: '',
-      profileImageSrc: ProfileImage,
+      nickname: this.$auth.user.nickname,
     }
   },
-  async fetch() {
-    await this.$client
-      .get('/api/auth/check')
-      .then((response) => {
-        this.nickname = response.data.nickname
-      })
-      .catch((error) => {
-        if (error.response.status === 403) {
-          this.$router.push({ name: 'login' })
-        }
-      })
-  },
   methods: {
-    logout() {
-      this.$client.post('/api/auth/logout')
-      this.$router.push({ name: 'login' })
+    async logout() {
+      await this.$auth.logout('local').then(() => {
+        this.$toast.success('로그아웃 성공!', { timeout: 3000 })
+        this.$router.push({ name: 'login' })
+      })
     },
   },
 }

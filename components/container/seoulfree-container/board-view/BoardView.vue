@@ -17,7 +17,7 @@
               익명
             </div>
             <div class="flex items-center text-xs mr-1.5 text-gray-500">
-              1분 전
+              {{ new Date(post.created).toLocaleDateString('ko-KR') }}
             </div>
             <div class="flex items-center text-xs mr-1.5 text-gray-500">
               <svg
@@ -40,7 +40,7 @@
                   d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                 ></path>
               </svg>
-              100
+              {{ post.view_count }}
             </div>
             <div class="flex items-center text-xs mr-1.5 text-gray-500">
               <svg
@@ -57,7 +57,7 @@
                   d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
                 ></path>
               </svg>
-              100
+              {{ post.thumbs_up }}
             </div>
             <div class="flex items-center text-xs text-gray-500">
               <svg
@@ -74,7 +74,7 @@
                   d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
                 ></path>
               </svg>
-              10
+              {{ post.number_of_comments }}
             </div>
           </div>
           <div class="flex text-xs">
@@ -114,6 +114,7 @@
               text-green-900
               mr-2
             "
+            @click="thumbsUp"
           >
             <svg
               class="w-5 h-5"
@@ -129,7 +130,7 @@
                 d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
               ></path>
             </svg>
-            <div class="ml-1">10</div>
+            <div class="ml-1">{{ post.thumbs_up }}</div>
           </div>
           <div
             class="
@@ -144,6 +145,7 @@
               active:bg-green-800
               text-green-900
             "
+            @click="thumbsDown"
           >
             <svg
               class="w-5 h-5"
@@ -159,69 +161,11 @@
                 d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018a2 2 0 01.485.06l3.76.94m-7 10v5a2 2 0 002 2h.096c.5 0 .905-.405.905-.904 0-.715.211-1.413.608-2.008L17 13V4m-7 10h2m5-10h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5"
               ></path>
             </svg>
-            <div class="ml-1">5</div>
+            <div class="ml-1">{{ post.thumbs_down }}</div>
           </div>
         </div>
       </div>
-      <div class="text-sm px-5 py-4 flex items-center border-b border-gray-200">
-        <svg
-          class="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-          ></path>
-        </svg>
-        <div class="ml-1">댓글</div>
-        <div class="ml-1 text-green-900 font-semibold">10</div>
-        <div>개</div>
-      </div>
-      <div
-        v-for="comment in comments"
-        :key="comment.id"
-        class="p-5 border-b border-gray-200"
-      >
-        <div class="flex justify-between">
-          <div class="flex">
-            <div class="text-xs font-semibold">익명</div>
-            <div class="text-xs ml-1 text-gray-500">1분 전</div>
-          </div>
-          <div class="flex">
-            <div class="text-xs text-gray-500 mr-2">답글</div>
-            <div class="text-xs text-gray-500 mr-2">추천</div>
-            <div class="text-xs text-gray-500 mr-2">쪽지</div>
-            <div class="text-xs text-gray-500">신고</div>
-          </div>
-        </div>
-        <div class="text-sm mt-1.5">
-          {{ comment.body }}
-        </div>
-        <div class="flex text-xs mt-1.5 text-green-900">
-          <div class="flex items-center mr-1">
-            <svg
-              class="w-3.5 h-3.5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
-              ></path>
-            </svg>
-            <div class="ml-0.5">5</div>
-          </div>
-        </div>
-      </div>
+      <Comment :post-id="id" />
     </div>
     <BoardList />
   </div>
@@ -230,28 +174,38 @@
 <script>
 import Advertisement from '../../../advertisement/index.vue'
 import BoardList from '../board-list/BoardList.vue'
+import Comment from './Comment.vue'
 
 export default {
   components: {
     Advertisement,
+    Comment,
     BoardList,
   },
   data() {
     return {
       id: this.$route.params.id,
       post: [],
-      comments: [],
     }
   },
   async fetch() {
     await this.$client.get(`api/seoulfree/${this.id}`).then((response) => {
       this.post = response.data[0]
     })
-
-    const commentResponse = await this.$axios.get(
-      `https://jsonplaceholder.typicode.com/comments?postId=${this.id}`
-    )
-    this.comments = commentResponse.data
+  },
+  methods: {
+    async thumbsUp() {
+      await this.$client.post(`api/seoulfree/${this.id}/thumbs_up`).then(() => {
+        this.$fetch()
+      })
+    },
+    async thumbsDown() {
+      await this.$client
+        .post(`api/seoulfree/${this.id}/thumbs_down`)
+        .then(() => {
+          this.$fetch()
+        })
+    },
   },
 }
 </script>

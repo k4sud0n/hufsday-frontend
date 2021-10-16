@@ -46,8 +46,27 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
     'vue-toastification/nuxt',
   ],
+
+  auth: {
+    strategies: {
+      local: {
+        user: {
+          property: '',
+        },
+        cookie: {
+          name: 'access_token',
+        },
+        endpoints: {
+          login: { url: '/api/auth/login', method: 'post' },
+          logout: { url: '/api/auth/logout', method: 'post' },
+          user: { url: '/api/auth/check', method: 'get' },
+        },
+      },
+    },
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
