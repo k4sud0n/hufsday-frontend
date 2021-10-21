@@ -10,7 +10,7 @@
       <div class="mt-8 text-sm">
         <div class="absolute px-4 py-3 font-semibold text-gray-500">아이디</div>
         <input
-          v-model="user_id"
+          v-model="username"
           placeholder="최소 3자 이상, 영문자, 숫자, _만 입력 가능"
           class="
             rounded
@@ -88,7 +88,7 @@
 export default {
   data() {
     return {
-      user_id: '',
+      username: '',
       password: '',
       nickname: '',
     }
@@ -98,11 +98,11 @@ export default {
       try {
         await this.$client
           .post('/api/auth/register', {
-            user_id: this.user_id,
+            username: this.username,
             password: this.password,
             nickname: this.nickname,
           })
-          .then((response) => {
+          .then(() => {
             this.$toast.success('회원가입 성공!', { timeout: 3000 })
             this.$router.push({ name: 'login' })
           })

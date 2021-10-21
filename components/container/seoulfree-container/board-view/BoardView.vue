@@ -1,27 +1,28 @@
 <template>
   <div>
-    <div
-      class="bg-white rounded mt-4 border-t border-l border-r border-gray-200"
-    >
+    <div class="bg-white rounded mt-4 border border-gray-200 overflow-hidden">
       <div class="p-5 border-b border-gray-200">
-        <div v-if="$fetchState.pending">
-          <div class="animate-pulse bg-green-100 rounded w-2/4 h-7"></div>
+        <div v-if="$fetchState.pending" class="flex">
+          <div class="animate-pulse bg-green-100 rounded w-8 h-7 mr-1.5"></div>
+          <div class="animate-pulse bg-green-100 rounded w-16 h-7 mr-1.5"></div>
+          <div class="animate-pulse bg-green-100 rounded w-8 h-7 mr-1.5"></div>
+          <div class="animate-pulse bg-green-100 rounded w-1/3 h-7"></div>
         </div>
         <div v-else-if="$fetchState.error" class="text-xl font-bold">
           이런! 에러가 발생했습니다
         </div>
-        <div v-else class="text-xl font-bold">{{ post.title }}</div>
+        <div v-else class="text-xl font-bold">{{ postDetail.title }}</div>
         <div class="flex justify-between mt-3">
           <div class="flex">
             <div class="flex items-center text-xs mr-1.5 font-semibold">
-              익명
+              익명의 컴공생
             </div>
             <div class="flex items-center text-xs mr-1.5 text-gray-500">
-              {{ new Date(post.created).toLocaleDateString('ko-KR') }}
+              {{ new Date(postDetail.created).toLocaleDateString('ko-KR') }}
             </div>
             <div class="flex items-center text-xs mr-1.5 text-gray-500">
               <svg
-                class="w-3.5 h-3.5"
+                class="w-3.5 h-3.5 mr-0.5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -40,11 +41,11 @@
                   d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                 ></path>
               </svg>
-              {{ post.view_count }}
+              {{ postDetail.view_count }}
             </div>
             <div class="flex items-center text-xs mr-1.5 text-gray-500">
               <svg
-                class="w-3.5 h-3.5"
+                class="w-3.5 h-3.5 mr-0.5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -57,11 +58,11 @@
                   d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
                 ></path>
               </svg>
-              {{ post.thumbs_up }}
+              {{ postDetail.thumbs_up }}
             </div>
             <div class="flex items-center text-xs text-gray-500">
               <svg
-                class="w-3.5 h-3.5"
+                class="w-3.5 h-3.5 mr-0.5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -74,12 +75,21 @@
                   d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
                 ></path>
               </svg>
-              {{ post.number_of_comments }}
+              {{ postDetail.number_of_comments }}
             </div>
           </div>
-          <div class="flex text-xs">
+          <div v-if="postDetail.user_id !== user_id" class="flex text-xs">
             <div class="text-xs text-gray-500 mr-2">쪽지</div>
             <div class="text-xs text-gray-500">신고</div>
+          </div>
+          <div v-else class="flex text-xs">
+            <div class="text-xs text-gray-500 mr-2">수정</div>
+            <div
+              class="text-xs text-gray-500 cursor-pointer"
+              @click="deletePost"
+            >
+              삭제
+            </div>
           </div>
         </div>
       </div>
@@ -93,12 +103,10 @@
           <div class="animate-pulse bg-green-100 rounded w-1/4 h-4 mb-2"></div>
           <div class="animate-pulse bg-green-100 rounded w-2/4 h-4"></div>
         </div>
-        <div v-else-if="$fetchState.error">
-          관리자에게 알려주시면 감사하겠습니다.
-        </div>
-        <div v-else>
-          {{ post.content }}
-        </div>
+        <div v-else-if="$fetchState.error">관리자에게 문의해주세요.</div>
+        <span v-else class="whitespace-pre-line">
+          {{ postDetail.content }}
+        </span>
         <div class="flex justify-center mt-8">
           <div
             class="
@@ -113,6 +121,7 @@
               active:bg-green-800
               text-green-900
               mr-2
+              cursor-pointer
             "
             @click="thumbsUp"
           >
@@ -130,7 +139,9 @@
                 d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
               ></path>
             </svg>
-            <div class="ml-1">{{ post.thumbs_up }}</div>
+            <div class="ml-1">
+              {{ postDetail.thumbs_up }}
+            </div>
           </div>
           <div
             class="
@@ -144,6 +155,7 @@
               hover:bg-green-900 hover:text-white
               active:bg-green-800
               text-green-900
+              cursor-pointer
             "
             @click="thumbsDown"
           >
@@ -161,11 +173,13 @@
                 d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018a2 2 0 01.485.06l3.76.94m-7 10v5a2 2 0 002 2h.096c.5 0 .905-.405.905-.904 0-.715.211-1.413.608-2.008L17 13V4m-7 10h2m5-10h2a2 2 0 012 2v6a2 2 0 01-2 2h-2.5"
               ></path>
             </svg>
-            <div class="ml-1">{{ post.thumbs_down }}</div>
+            <div class="ml-1">
+              {{ postDetail.thumbs_down }}
+            </div>
           </div>
         </div>
       </div>
-      <Comment :post-id="id" />
+      <Comment :post-id="id" :post-creator-id="postDetail.user_id" />
     </div>
     <BoardList />
   </div>
@@ -184,26 +198,41 @@ export default {
   },
   data() {
     return {
-      id: this.$route.params.id,
-      post: [],
+      user_id: this.$auth.user.id,
+      id: parseInt(this.$route.params.id),
+      postDetail: [],
     }
   },
   async fetch() {
-    await this.$client.get(`api/seoulfree/${this.id}`).then((response) => {
-      this.post = response.data[0]
+    await this.$store.dispatch('seoulfree/getPostDetail', this.id).then(() => {
+      this.postDetail = this.$store.state.seoulfree.postDetail
     })
   },
   methods: {
-    async thumbsUp() {
-      await this.$client.post(`api/seoulfree/${this.id}/thumbs_up`).then(() => {
-        this.$fetch()
+    async deletePost() {
+      await this.$client.delete(`/api/seoulfree/${this.id}/delete`).then(() => {
+        this.$toast.success('삭제 성공!', { timeout: 3000 })
+        this.$router.push({ name: 'seoulfree' })
       })
+    },
+    async thumbsUp() {
+      await this.$client
+        .post(`/api/seoulfree/${this.id}/thumbs_up`)
+        .then(() => {
+          this.$store.dispatch('seoulfree/getPostDetail', this.id).then(() => {
+            this.postDetail = this.$store.state.seoulfree.postDetail
+          })
+          this.$toast.success('글을 추천했습니다', { timeout: 3000 })
+        })
     },
     async thumbsDown() {
       await this.$client
-        .post(`api/seoulfree/${this.id}/thumbs_down`)
+        .post(`/api/seoulfree/${this.id}/thumbs_down`)
         .then(() => {
-          this.$fetch()
+          this.$store.dispatch('seoulfree/getPostDetail', this.id).then(() => {
+            this.postDetail = this.$store.state.seoulfree.postDetail
+          })
+          this.$toast.success('글을 비추천했습니다', { timeout: 3000 })
         })
     },
   },

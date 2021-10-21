@@ -3,7 +3,12 @@
     <div class="p-4">
       <div class="flex justify-center">
         <div class="rounded bg-gray-200 w-16 h-16 overflow-hidden">
-          <img src="@/static/image/profile/profile.png" />
+          <img
+            class="mt-0.5"
+            :src="
+              'https://avatars.dicebear.com/api/big-smile/' + nickname + '.svg'
+            "
+          />
         </div>
       </div>
       <div class="flex justify-center text-sm mt-2">
@@ -19,6 +24,7 @@
             mt-2.5
             text-gray-500
             p-1
+            hover:bg-gray-50
           "
           @click="logout"
         >
@@ -27,7 +33,29 @@
       </div>
     </div>
     <div class="flex border-t border-gray-200">
-      <div class="flex flex-auto justify-center p-2">
+      <NuxtLink
+        :to="{ name: 'user-notification' }"
+        class="flex flex-auto justify-center p-2 hover:bg-gray-50"
+      >
+        <div
+          v-if="$nuxt.$store.state.notification.notificationLength"
+          class="
+            absolute
+            ml-2
+            p-2
+            -mt-1
+            flex
+            rounded-full
+            h-3.5
+            w-3.5
+            items-center
+            justify-center
+            bg-red-500
+            text-white text-xs
+          "
+        >
+          {{ $nuxt.$store.state.notification.notificationLength }}
+        </div>
         <svg
           class="w-5 h-5"
           fill="none"
@@ -42,7 +70,7 @@
             d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
           ></path>
         </svg>
-      </div>
+      </NuxtLink>
 
       <div class="border-r border-gray-200"></div>
       <div class="flex flex-auto justify-center p-2">
@@ -94,6 +122,9 @@ export default {
     return {
       nickname: this.$auth.user.nickname,
     }
+  },
+  async fetch() {
+    await this.$store.dispatch('notification/getNotificationLength')
   },
   methods: {
     async logout() {

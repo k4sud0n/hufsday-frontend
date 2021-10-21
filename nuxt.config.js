@@ -47,6 +47,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
+    'nuxt-socket-io',
     'vue-toastification/nuxt',
   ],
 
@@ -66,6 +67,13 @@ export default {
         },
       },
     },
+  },
+
+  io: {
+    sockets: [{
+      name: 'main',
+      url: 'http://localhost:3000'
+    }]
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

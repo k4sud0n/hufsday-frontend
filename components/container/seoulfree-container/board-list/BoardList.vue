@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div
-      class="bg-white rounded mt-4 border-t border-l border-r border-gray-200"
-    >
+    <div class="bg-white mt-4 rounded border border-gray-200 overflow-hidden">
       <div class="p-4 border-b border-gray-200">
         <div class="text-sm font-semibold text-green-900">
           서울캠 자유게시판
@@ -65,7 +63,10 @@
           <div
             v-for="(post, index) in 20"
             :key="index"
-            class="px-4 py-3.5 border-b border-gray-200"
+            :class="[
+              'px-4 py-3.5 border-b border-gray-200',
+              index == posts.length - 1 ? null : 'border-b border-gray-200',
+            ]"
           >
             <div class="animate-pulse bg-green-100 rounded w-3/5 h-4"></div>
             <div class="flex mt-1">
@@ -86,7 +87,7 @@
           목록을 불러올 수 없습니다! 관리자에게 문의해주세요.
         </div>
         <NuxtLink
-          v-for="post in posts"
+          v-for="(post, index) in posts"
           v-else
           :key="post.id"
           :to="{
@@ -97,8 +98,9 @@
         >
           <div
             :class="[
-              'px-4 py-3 border-b border-gray-200 hover:bg-gray-50',
+              'px-4 py-3 hover:bg-gray-50',
               post.id == routerId ? 'bg-gray-50' : 'bg-white',
+              index == posts.length - 1 ? null : 'border-b border-gray-200',
             ]"
           >
             <div>
@@ -110,14 +112,14 @@
                 ({{ post.number_of_comments }})
               </span>
             </div>
-            <div class="flex mt-1">
-              <div class="text-xs mr-1.5">익명</div>
+            <div class="flex mt-1 items-center">
+              <div class="text-xs mr-1.5">익명의 컴공생</div>
               <div class="text-xs text-gray-500 mr-1.5">
                 {{ new Date(post.created).toLocaleDateString('ko-KR') }}
               </div>
               <div class="flex items-center text-xs text-gray-500 mr-1.5">
                 <svg
-                  class="w-3.5 h-3.5"
+                  class="w-3.5 h-3.5 mr-0.5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -140,7 +142,7 @@
               </div>
               <div class="flex items-center text-xs text-gray-500">
                 <svg
-                  class="w-3.5 h-3.5"
+                  class="w-3.5 h-3.5 mr-0.5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -166,144 +168,140 @@
         class="relative z-0 inline-flex rounded -space-x-px"
         aria-label="Pagination"
       >
-        <div v-if="pageNumber === 1">
-          <button
-            class="
-              bg-gray-50
-              relative
-              inline-flex
-              items-center
-              px-2
-              py-2
-              rounded-l-md
-              border border-gray-200
-              bg-white
-              text-sm
-              font-medium
-              text-gray-500
-            "
-            disabled
-            @click="previousPage"
+        <button
+          v-if="pageNumber == 1"
+          class="
+            bg-gray-50
+            relative
+            inline-flex
+            items-center
+            px-2
+            py-2
+            rounded-l-md
+            border border-gray-200
+            bg-white
+            text-sm
+            font-medium
+            text-gray-500
+          "
+          disabled
+          @click="previousPage"
+        >
+          <span class="sr-only">Previous</span>
+          <svg
+            class="h-5 w-5"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
           >
-            <span class="sr-only">Previous</span>
-            <svg
-              class="h-5 w-5"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </button>
-        </div>
-        <div v-else>
-          <button
-            class="
-              relative
-              inline-flex
-              items-center
-              px-2
-              py-2
-              rounded-l-md
-              border border-gray-200
-              bg-white
-              text-sm
-              font-medium
-              text-gray-500
-              hover:bg-gray-50
-            "
-            @click="previousPage"
+            <path
+              fill-rule="evenodd"
+              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <button
+          v-else
+          class="
+            relative
+            inline-flex
+            items-center
+            px-2
+            py-2
+            rounded-l-md
+            border border-gray-200
+            bg-white
+            text-sm
+            font-medium
+            text-gray-500
+            hover:bg-gray-50
+          "
+          @click="previousPage"
+        >
+          <span class="sr-only">Previous</span>
+          <svg
+            class="h-5 w-5"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
           >
-            <span class="sr-only">Previous</span>
-            <svg
-              class="h-5 w-5"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </button>
-        </div>
-        <div v-if="posts.length !== 20">
-          <button
-            class="
-              bg-gray-50
-              relative
-              inline-flex
-              items-center
-              px-2
-              py-2
-              rounded-r-md
-              border border-gray-200
-              bg-white
-              text-sm
-              font-medium
-              text-gray-500
-            "
-            disabled
-            @click="nextPage"
+            <path
+              fill-rule="evenodd"
+              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <button
+          v-if="posts.length !== 20"
+          class="
+            bg-gray-50
+            relative
+            inline-flex
+            items-center
+            px-2
+            py-2
+            rounded-r-md
+            border border-gray-200
+            bg-white
+            text-sm
+            font-medium
+            text-gray-500
+          "
+          disabled
+          @click="nextPage"
+        >
+          <span class="sr-only">Next</span>
+          <svg
+            class="h-5 w-5"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
           >
-            <span class="sr-only">Next</span>
-            <svg
-              class="h-5 w-5"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </button>
-        </div>
-        <div v-else>
-          <button
-            class="
-              relative
-              inline-flex
-              items-center
-              px-2
-              py-2
-              rounded-r-md
-              border border-gray-200
-              bg-white
-              text-sm
-              font-medium
-              text-gray-500
-              hover:bg-gray-50
-            "
-            @click="nextPage"
+            <path
+              fill-rule="evenodd"
+              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <button
+          v-else
+          class="
+            relative
+            inline-flex
+            items-center
+            px-2
+            py-2
+            rounded-r-md
+            border border-gray-200
+            bg-white
+            text-sm
+            font-medium
+            text-gray-500
+            hover:bg-gray-50
+          "
+          @click="nextPage"
+        >
+          <span class="sr-only">Next</span>
+          <svg
+            class="h-5 w-5"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
           >
-            <span class="sr-only">Next</span>
-            <svg
-              class="h-5 w-5"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </button>
-        </div>
+            <path
+              fill-rule="evenodd"
+              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
       </nav>
     </div>
     <!-- pagination end -->

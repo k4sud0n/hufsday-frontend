@@ -28,18 +28,29 @@
     >
       <div class="flex justify-between">
         <div class="flex">
-          <div class="text-xs font-semibold">익명</div>
+          <div class="text-xs font-semibold">익명의 컴공생</div>
           <div class="text-xs ml-1 text-gray-500">
             {{ new Date(comment.created).toLocaleDateString('ko-KR') }}
           </div>
         </div>
-        <div class="flex">
+        <div v-if="comment.user_id !== user_id" class="flex">
           <div class="text-xs text-gray-500 mr-2">답글</div>
-          <div class="text-xs text-gray-500 mr-2 cursor-pointer" @click="commentThumbsUp(comment.id)">
+          <div
+            class="cursor-pointer text-xs text-gray-500 mr-2"
+            @click="thumbsUp(comment.id)"
+          >
             추천
           </div>
           <div class="text-xs text-gray-500 mr-2">쪽지</div>
           <div class="text-xs text-gray-500">신고</div>
+        </div>
+        <div v-else class="flex">
+          <div
+            class="cursor-pointer text-xs text-gray-500"
+            @click="deleteComment(comment.id)"
+          >
+            삭제
+          </div>
         </div>
       </div>
       <div class="text-sm mt-1.5">
@@ -69,25 +80,16 @@
       </div>
     </div>
 
-    <form
-      class="flex border-b border-gray-200 text-xs"
-      @submit.prevent="formSubmit"
-    >
+    <form class="flex text-xs" @submit.prevent="formSubmit">
       <input
         :value="content"
-        class="px-5 py-3.5 w-full bg-gray-50"
+        class="px-5 py-3.5 w-full bg-gray-50 focus:outline-none"
         placeholder="댓글을 입력하세요."
         required
         @input="changeContent"
       />
       <button
-        class="
-          px-4
-          rounded-br
-          border-l border-gray-200
-          bg-green-900
-          overflow-hidden
-        "
+        class="px-4 border-l border-gray-200 bg-green-900 overflow-hidden"
       >
         <svg
           class="w-4 h-4 text-white"
@@ -109,45 +111,60 @@
 </template>
 
 <script>
+import _ from 'lodash'
+
 export default {
   props: {
     postId: {
       type: Number,
       default: 0,
     },
+    postCreatorId: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
+      user_id: this.$auth.user.id,
       comments: [],
       content: '',
-      nickname: this.$auth.user.nickname,
     }
   },
   async fetch() {
-    await this.$client
-      .get(`api/seoulfree/${this.postId}/comment`)
-      .then((response) => {
-        this.comments = response.data
+    await this.$store
+      .dispatch('seoulfree/getCommentList', this.postId)
+      .then(() => {
+        this.comments = this.$store.state.seoulfree.comments
+        this.$store.dispatch('notification/getNotificationLength')
       })
   },
   methods: {
-    changeContent(e) {
+    changeContent: _.debounce(function (e) {
       this.content = e.target.value
-    },
+    }, 150),
     async formSubmit() {
       await this.$client
-        .post(`api/seoulfree/${this.postId}/comment/create`, {
+        .post(`/api/seoulfree/${this.postId}/comments/create`, {
+          postCreatorId: this.postCreatorId,
           content: this.content,
-          nickname: this.nickname,
         })
         .then(() => {
           this.content = ''
           this.$fetch()
         })
     },
-    async commentThumbsUp(commentId) {
+    async deleteComment(commentId) {
       await this.$client
-        .post(`api/seoulfree/${this.postId}/comment/${commentId}/thumbs_up`)
+        .delete(`/api/seoulfree/${this.postId}/comments/${commentId}/delete`)
+        .then(() => {
+          this.$toast.success('삭제 성공!', { timeout: 3000 })
+          this.$fetch()
+        })
+    },
+    async thumbsUp(commentId) {
+      await this.$client
+        .post(`/api/seoulfree/${this.postId}/comments/${commentId}/thumbs_up`)
         .then(() => {
           this.$fetch()
         })

@@ -31,22 +31,39 @@
       </NuxtLink>
     </div>
     <div>
-      <div class="border-b border-gray-200 px-3 py-2.5 text-sm">
-        Lorem ipsum dolor sit amet, consectetur adi..
-      </div>
-      <div class="border-b border-gray-200 px-3 py-2.5 text-sm">
-        Lorem ipsum dolor sit amet, consectetur adi..
-      </div>
-      <div class="border-b border-gray-200 px-3 py-2.5 text-sm">
-        Lorem ipsum dolor sit amet, consectetur adi..
-      </div>
-      <div class="px-3 py-2.5 text-sm">
-        Lorem ipsum dolor sit amet, consectetur adi..
-      </div>
+      <NuxtLink
+        v-for="(post, index) in posts"
+        :key="post.id"
+        :to="{
+          name: 'seoulfree-id',
+          params: { id: post.id },
+          query: { page: 1 },
+        }"
+      >
+        <div
+          :class="[
+            'px-3 py-2.5 text-sm hover:bg-gray-50',
+            index == posts.length - 1 ? null : 'border-b border-gray-200',
+          ]"
+        >
+          {{ post.title }}
+        </div>
+      </NuxtLink>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      posts: [],
+    }
+  },
+  async fetch() {
+    await this.$store.dispatch('main/getSeoulfreePostList').then(() => {
+      this.posts = this.$store.state.main.seoulfreePosts
+    })
+  },
+}
 </script>

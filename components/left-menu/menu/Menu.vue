@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="rounded border-t border-l border-r border-gray-200 overflow-hidden"
-  >
+  <div class="rounded border border-gray-200 overflow-hidden">
     <div class="bg-green-900 text-white p-2.5">
       <svg
         class="w-5 h-5 float-left"
@@ -26,7 +24,7 @@
 
     <div v-for="menu in splitedCommunityMenus" :key="menu">
       <NuxtLink :to="menu.link">
-        <div class="p-1.5 bg-white border-b border-gray-200">
+        <div class="p-1.5 bg-white border-b border-gray-200 hover:bg-gray-50">
           <svg
             class="w-4 h-4 text-green-900 float-left mt-0.5"
             fill="none"
@@ -53,7 +51,7 @@
     <div
       v-for="menu in splitedLifeMenus"
       :key="menu"
-      class="p-1.5 bg-white border-b border-gray-200"
+      class="p-1.5 bg-white border-b border-gray-200 hover:bg-gray-50"
     >
       <svg
         class="w-4 h-4 text-green-900 float-left mt-0.5"
@@ -73,13 +71,15 @@
     </div>
 
     <div class="p-2 bg-green-100">
-      <div class="text-green-900 font-medium text-sm">STUDY</div>
+      <div class="text-green-900 font-medium text-sm">
+        STUDY
+      </div>
     </div>
 
     <div
       v-for="menu in splitedStudyMenus"
       :key="menu"
-      class="p-1.5 bg-white border-b border-gray-200"
+      class="p-1.5 bg-white border-b border-gray-200 hover:bg-gray-50"
     >
       <svg
         class="w-4 h-4 text-green-900 float-left mt-0.5"
@@ -99,13 +99,18 @@
     </div>
 
     <div class="p-2 bg-green-100">
-      <div class="text-green-900 font-medium text-sm">HOBBY</div>
+      <div class="text-green-900 font-medium text-sm">
+        HOBBY
+      </div>
     </div>
 
     <div
-      v-for="menu in splitedHobbyMenus"
+      v-for="(menu, index) in splitedHobbyMenus"
       :key="menu"
-      class="p-1.5 bg-white border-b border-gray-200"
+      :class="[
+        'p-1.5 bg-white hover:bg-gray-50',
+        index === 4 ? null : 'border-b border-gray-200',
+      ]"
     >
       <svg
         class="w-4 h-4 text-green-900 float-left mt-0.5"

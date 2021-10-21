@@ -10,7 +10,7 @@
       <div class="mt-8 text-sm">
         <div class="absolute px-4 py-3 font-semibold text-gray-500">아이디</div>
         <input
-          v-model="login.user_id"
+          v-model="login.username"
           placeholder="ILOVEHUFSDAY"
           class="
             rounded
@@ -122,7 +122,7 @@ export default {
     return {
       keepLoggedIn: false,
       login: {
-        user_id: '',
+        username: '',
         password: '',
       },
     }
