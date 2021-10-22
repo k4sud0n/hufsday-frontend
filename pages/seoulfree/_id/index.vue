@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import SeoulFreeBoardView from '../../components/container/seoulfree-container/board-view/index.vue'
+import SeoulFreeBoardView from '../../../components/container/seoulfree-container/board-view/index.vue'
 
 export default {
   components: {

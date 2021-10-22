@@ -28,7 +28,13 @@
     >
       <div class="flex justify-between">
         <div class="flex">
-          <div class="text-xs font-semibold">익명의 컴공생</div>
+          <div
+            v-if="postCreatorId == comment.user_id"
+            class="text-xs font-semibold text-green-900"
+          >
+            익명의 컴공생(글쓴이)
+          </div>
+          <div v-else class="text-xs font-semibold">익명의 컴공생</div>
           <div class="text-xs ml-1 text-gray-500">
             {{ new Date(comment.created).toLocaleDateString('ko-KR') }}
           </div>

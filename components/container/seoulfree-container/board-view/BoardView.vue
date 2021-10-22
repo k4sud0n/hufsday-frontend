@@ -58,7 +58,7 @@
                   d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
                 ></path>
               </svg>
-              {{ postDetail.thumbs_up }}
+              {{ postThumbsUp }}
             </div>
             <div class="flex items-center text-xs text-gray-500">
               <svg
@@ -83,7 +83,12 @@
             <div class="text-xs text-gray-500">신고</div>
           </div>
           <div v-else class="flex text-xs">
-            <div class="text-xs text-gray-500 mr-2">수정</div>
+            <div
+              class="text-xs text-gray-500 mr-2 cursor-pointer"
+              @click="updatePost"
+            >
+              수정
+            </div>
             <div
               class="text-xs text-gray-500 cursor-pointer"
               @click="deletePost"
@@ -140,7 +145,7 @@
               ></path>
             </svg>
             <div class="ml-1">
-              {{ postDetail.thumbs_up }}
+              {{ postThumbsUp }}
             </div>
           </div>
           <div
@@ -174,7 +179,7 @@
               ></path>
             </svg>
             <div class="ml-1">
-              {{ postDetail.thumbs_down }}
+              {{ postThumbsDown }}
             </div>
           </div>
         </div>
@@ -201,14 +206,21 @@ export default {
       user_id: this.$auth.user.id,
       id: parseInt(this.$route.params.id),
       postDetail: [],
+      postThumbsUp: 0,
+      postThumbsDown: 0,
     }
   },
   async fetch() {
     await this.$store.dispatch('seoulfree/getPostDetail', this.id).then(() => {
       this.postDetail = this.$store.state.seoulfree.postDetail
+      this.postThumbsUp = this.$store.state.seoulfree.postDetail.thumbs_up
+      this.postThumbsDown = this.$store.state.seoulfree.postDetail.thumbs_down
     })
   },
   methods: {
+    async updatePost() {
+      await this.$router.push(`/seoulfree/${this.id}/update`)
+    },
     async deletePost() {
       await this.$client.delete(`/api/seoulfree/${this.id}/delete`).then(() => {
         this.$toast.success('삭제 성공!', { timeout: 3000 })
@@ -216,24 +228,54 @@ export default {
       })
     },
     async thumbsUp() {
-      await this.$client
-        .post(`/api/seoulfree/${this.id}/thumbs_up`)
-        .then(() => {
-          this.$store.dispatch('seoulfree/getPostDetail', this.id).then(() => {
-            this.postDetail = this.$store.state.seoulfree.postDetail
+      try {
+        await this.$client
+          .post(`/api/seoulfree/${this.id}/thumbs_up`)
+          .then(() => {
+            this.$store
+              .dispatch('seoulfree/getPostDetail', this.id)
+              .then(() => {
+                this.postThumbsUp =
+                  this.$store.state.seoulfree.postDetail.thumbs_up
+              })
+            this.$toast.success('글을 추천했습니다', { timeout: 3000 })
           })
-          this.$toast.success('글을 추천했습니다', { timeout: 3000 })
-        })
+      } catch (error) {
+        if (error.response.data === 'thumbs_up_duplicate') {
+          this.$toast.error('이미 추천했습니다.', {
+            timeout: 3000,
+          })
+        } else {
+          this.$toast.error('자신의 글을 추천할 수 없습니다.', {
+            timeout: 3000,
+          })
+        }
+      }
     },
     async thumbsDown() {
-      await this.$client
-        .post(`/api/seoulfree/${this.id}/thumbs_down`)
-        .then(() => {
-          this.$store.dispatch('seoulfree/getPostDetail', this.id).then(() => {
-            this.postDetail = this.$store.state.seoulfree.postDetail
+      try {
+        await this.$client
+          .post(`/api/seoulfree/${this.id}/thumbs_down`)
+          .then(() => {
+            this.$store
+              .dispatch('seoulfree/getPostDetail', this.id)
+              .then(() => {
+                this.postThumbsDown =
+                  this.$store.state.seoulfree.postDetail.thumbs_down
+              })
+            this.$toast.success('글을 비추천했습니다', { timeout: 3000 })
           })
-          this.$toast.success('글을 비추천했습니다', { timeout: 3000 })
-        })
+      } catch (error) {
+        if (error.response.data === 'thumbs_down_duplicate') {
+          this.$toast.error('이미 비추천했습니다.', {
+            timeout: 3000,
+          })
+        } else {
+          this.$toast.error('자신의 글을 비추천할 수 없습니다.', {
+            timeout: 3000,
+          })
+        }
+      }
     },
   },
 }
