@@ -52,7 +52,7 @@
         </div>
         <div class="mt-0.5">
           <span class="text-gray-500">
-            {{ new Date(notification.created).toLocaleDateString('ko-KR') }}
+            {{ $dayjs(notification.created).fromNow() }}
           </span>
           <span v-if="!notification.readed" class="ml-0.5 text-red-500">
             읽지 않음

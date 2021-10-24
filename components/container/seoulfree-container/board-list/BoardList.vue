@@ -115,7 +115,7 @@
             <div class="flex mt-1 items-center">
               <div class="text-xs mr-1.5">익명의 컴공생</div>
               <div class="text-xs text-gray-500 mr-1.5">
-                {{ new Date(post.created).toLocaleDateString('ko-KR') }}
+                {{ $dayjs(post.created).fromNow() }}
               </div>
               <div class="flex items-center text-xs text-gray-500 mr-1.5">
                 <svg

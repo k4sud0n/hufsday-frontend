@@ -18,7 +18,7 @@
               익명의 컴공생
             </div>
             <div class="flex items-center text-xs mr-1.5 text-gray-500">
-              {{ new Date(postDetail.created).toLocaleDateString('ko-KR') }}
+              {{ $dayjs(postDetail.created).fromNow() }}
             </div>
             <div class="flex items-center text-xs mr-1.5 text-gray-500">
               <svg

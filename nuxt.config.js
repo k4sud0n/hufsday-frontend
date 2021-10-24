@@ -29,7 +29,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/axios'],
+  plugins: ['~/plugins/axios', '~/plugins/dayjs'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -47,6 +47,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
+    '@nuxtjs/dayjs',
     'nuxt-socket-io',
     'vue-toastification/nuxt',
   ],
@@ -70,10 +71,19 @@ export default {
   },
 
   io: {
-    sockets: [{
-      name: 'main',
-      url: 'http://localhost:3000'
-    }]
+    sockets: [
+      {
+        name: 'main',
+        url: 'http://localhost:3000',
+      },
+    ],
+  },
+
+  dayjs: {
+    locales: ['ko'],
+    defaultLocale: 'ko',
+    defaultTimeZone: 'Asia/Seoul',
+    plugins: ['timezone', 'relativeTime', 'updateLocale'],
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

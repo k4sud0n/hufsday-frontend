@@ -2,6 +2,7 @@ export const state = () => ({
   posts: [],
   postDetail: [],
   comments: [],
+  replys: [],
 })
 
 export const mutations = {
@@ -12,7 +13,10 @@ export const mutations = {
     state.postDetail = response.data[0]
   },
   setCommentList(state, response) {
-    state.comments = response.data
+    state.comments = response.data.filter((o) => o.parent_id === null)
+  },
+  setReplyList(state, response) {
+    state.replys = response.data.filter((o) => o.parent_id !== null)
   },
 }
 
@@ -32,6 +36,7 @@ export const actions = {
       .get(`/api/seoulfree/${postId}/comments`)
       .then((response) => {
         context.commit('setCommentList', response)
+        context.commit('setReplyList', response)
       })
   },
 }

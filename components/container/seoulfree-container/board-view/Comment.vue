@@ -22,12 +22,12 @@
       <div>개</div>
     </div>
     <div
-      v-for="comment in comments"
+      v-for="(comment, index) in comments"
       :key="comment.id"
       class="p-5 border-b border-gray-200"
     >
       <div class="flex justify-between">
-        <div class="flex">
+        <div v-if="comment.content !== '삭제된 댓글입니다.'" class="flex">
           <div
             v-if="postCreatorId == comment.user_id"
             class="text-xs font-semibold text-green-900"
@@ -36,26 +36,40 @@
           </div>
           <div v-else class="text-xs font-semibold">익명의 컴공생</div>
           <div class="text-xs ml-1 text-gray-500">
-            {{ new Date(comment.created).toLocaleDateString('ko-KR') }}
+            {{ $dayjs(comment.created).fromNow() }}
           </div>
         </div>
-        <div v-if="comment.user_id !== user_id" class="flex">
-          <div class="text-xs text-gray-500 mr-2">답글</div>
-          <div
-            class="cursor-pointer text-xs text-gray-500 mr-2"
-            @click="thumbsUp(comment.id)"
-          >
-            추천
+        <div v-else class="text-xs font-semibold">(삭제)</div>
+        <div v-if="comment.content !== '삭제된 댓글입니다.'">
+          <div v-if="comment.user_id !== user_id" class="flex">
+            <div
+              class="text-xs text-gray-500 mr-2 cursor-pointer"
+              @click="selectItem(index)"
+            >
+              답글
+            </div>
+            <div
+              class="cursor-pointer text-xs text-gray-500 mr-2"
+              @click="thumbsUp(comment.id)"
+            >
+              추천
+            </div>
+            <div class="text-xs text-gray-500 mr-2">쪽지</div>
+            <div class="text-xs text-gray-500">신고</div>
           </div>
-          <div class="text-xs text-gray-500 mr-2">쪽지</div>
-          <div class="text-xs text-gray-500">신고</div>
-        </div>
-        <div v-else class="flex">
-          <div
-            class="cursor-pointer text-xs text-gray-500"
-            @click="deleteComment(comment.id)"
-          >
-            삭제
+          <div v-else class="flex">
+            <div
+              class="text-xs text-gray-500 mr-2 cursor-pointer"
+              @click="selectItem(index)"
+            >
+              답글
+            </div>
+            <div
+              class="cursor-pointer text-xs text-gray-500"
+              @click="deleteComment(comment.id)"
+            >
+              삭제
+            </div>
           </div>
         </div>
       </div>
@@ -84,6 +98,19 @@
           <div class="ml-0.5">{{ comment.thumbs_up }}</div>
         </div>
       </div>
+      <div v-for="reply in replys" :key="reply.parent_id">
+        <Reply
+          v-if="comment.id === reply.parent_id"
+          :reply="reply"
+          :post-id="postId"
+          :post-creator-id="postCreatorId"
+        />
+      </div>
+      <ReplyToggle
+        :post-id="postId"
+        :parent-id="comment.id"
+        :class="{ hidden: index !== activeItem }"
+      />
     </div>
 
     <form class="flex text-xs" @submit.prevent="formSubmit">
@@ -119,7 +146,14 @@
 <script>
 import _ from 'lodash'
 
+import Reply from './Reply.vue'
+import ReplyToggle from './ReplyToggle.vue'
+
 export default {
+  components: {
+    Reply,
+    ReplyToggle,
+  },
   props: {
     postId: {
       type: Number,
@@ -134,7 +168,9 @@ export default {
     return {
       user_id: this.$auth.user.id,
       comments: [],
+      replys: [],
       content: '',
+      activeItem: null,
     }
   },
   async fetch() {
@@ -142,10 +178,14 @@ export default {
       .dispatch('seoulfree/getCommentList', this.postId)
       .then(() => {
         this.comments = this.$store.state.seoulfree.comments
+        this.replys = this.$store.state.seoulfree.replys
         this.$store.dispatch('notification/getNotificationLength')
       })
   },
   methods: {
+    selectItem(i) {
+      this.activeItem = i
+    },
     changeContent: _.debounce(function (e) {
       this.content = e.target.value
     }, 150),
@@ -162,18 +202,31 @@ export default {
     },
     async deleteComment(commentId) {
       await this.$client
-        .delete(`/api/seoulfree/${this.postId}/comments/${commentId}/delete`)
+        .patch(`/api/seoulfree/${this.postId}/comments/${commentId}/delete`)
         .then(() => {
           this.$toast.success('삭제 성공!', { timeout: 3000 })
           this.$fetch()
         })
     },
     async thumbsUp(commentId) {
-      await this.$client
-        .post(`/api/seoulfree/${this.postId}/comments/${commentId}/thumbs_up`)
-        .then(() => {
-          this.$fetch()
-        })
+      try {
+        await this.$client
+          .post(`/api/seoulfree/${this.postId}/comments/${commentId}/thumbs_up`)
+          .then(() => {
+            this.$fetch()
+          })
+      } catch (error) {
+        if (error.response.data === 'thumbs_up_own') {
+          this.$toast.error('자신의 댓글을 추천할 수 없습니다.', {
+            timeout: 3000,
+          })
+        }
+        if (error.response.data === 'thumbs_up_duplicate') {
+          this.$toast.error('이미 추천했습니다.', {
+            timeout: 3000,
+          })
+        }
+      }
     },
   },
 }
