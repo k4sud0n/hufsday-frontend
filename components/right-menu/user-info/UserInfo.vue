@@ -73,7 +73,10 @@
       </NuxtLink>
 
       <div class="border-r border-gray-200"></div>
-      <div class="flex flex-auto justify-center p-2">
+      <NuxtLink
+        :to="{ name: 'user-message' }"
+        class="flex flex-auto justify-center p-2 hover:bg-gray-50"
+      >
         <svg
           class="w-5 h-5"
           fill="none"
@@ -88,9 +91,12 @@
             d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
           ></path>
         </svg>
-      </div>
+      </NuxtLink>
       <div class="border-r border-gray-200"></div>
-      <div class="flex flex-auto justify-center p-2">
+      <NuxtLink
+        :to="{ name: 'user' }"
+        class="flex flex-auto justify-center p-2 hover:bg-gray-50"
+      >
         <svg
           class="w-5 h-5"
           fill="none"
@@ -111,7 +117,7 @@
             d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
           ></path>
         </svg>
-      </div>
+      </NuxtLink>
     </div>
   </div>
 </template>

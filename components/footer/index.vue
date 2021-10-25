@@ -12,7 +12,7 @@
       text-sm
     "
   >
-    <div class="py-4">
+    <NuxtLink :to="{ name: 'index' }" class="py-4">
       <svg
         class="w-6 h-6 text-gray-500"
         fill="currentColor"
@@ -23,8 +23,8 @@
           d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
         ></path>
       </svg>
-    </div>
-    <div class="py-4">
+    </NuxtLink>
+    <NuxtLink :to="{ name: 'user-notification' }" class="py-4">
       <svg
         class="w-6 h-6 text-gray-500"
         fill="currentColor"
@@ -35,8 +35,8 @@
           d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"
         ></path>
       </svg>
-    </div>
-    <div class="py-4">
+    </NuxtLink>
+    <NuxtLink :to="{ name: 'user-message' }" class="py-4">
       <svg
         class="w-6 h-6 text-gray-500"
         fill="currentColor"
@@ -50,8 +50,8 @@
           d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
         ></path>
       </svg>
-    </div>
-    <div class="py-3">
+    </NuxtLink>
+    <NuxtLink :to="{ name: 'user' }" class="py-3">
       <div
         class="
           rounded-full
@@ -66,7 +66,7 @@
       >
         <img class="object-cover" :src="profileImageSrc" />
       </div>
-    </div>
+    </NuxtLink>
   </div>
 </template>
 

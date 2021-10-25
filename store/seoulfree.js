@@ -1,5 +1,6 @@
 export const state = () => ({
   posts: [],
+  searchedPosts: [],
   postDetail: [],
   comments: [],
   replys: [],
@@ -8,6 +9,9 @@ export const state = () => ({
 export const mutations = {
   setPostList(state, response) {
     state.posts = response.data
+  },
+  setPostSearchList(state, response) {
+    state.searchedPosts = response.data
   },
   setPostDetail(state, response) {
     state.postDetail = response.data[0]
@@ -25,6 +29,13 @@ export const actions = {
     await this.$client.get('/api/seoulfree', param).then((response) => {
       context.commit('setPostList', response)
     })
+  },
+  async getPostSearchList(context, search) {
+    await this.$client
+      .get(`/api/seoulfree/search/${search}`)
+      .then((response) => {
+        context.commit('setPostSearchList', response)
+      })
   },
   async getPostDetail(context, postId) {
     await this.$client.get(`/api/seoulfree/${postId}`).then((response) => {

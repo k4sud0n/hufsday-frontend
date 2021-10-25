@@ -66,37 +66,12 @@
           </NuxtLink>
         </div>
       </div>
+      <div v-if="posts.length === 0" class="text-sm">
+        <div class="px-4 py-3.5">검색 결과가 없습니다.</div>
+      </div>
       <div class="text-sm">
-        <div v-if="$fetchState.pending">
-          <div
-            v-for="(post, index) in 20"
-            :key="index"
-            :class="[
-              'px-4 py-3.5 border-b border-gray-200',
-              index == posts.length - 1 ? null : 'border-b border-gray-200',
-            ]"
-          >
-            <div class="animate-pulse bg-green-100 rounded w-3/5 h-4"></div>
-            <div class="flex mt-1">
-              <div
-                class="animate-pulse bg-green-100 rounded w-8 h-4 mr-1.5"
-              ></div>
-              <div
-                class="animate-pulse bg-green-100 rounded w-6 h-4 mr-1.5"
-              ></div>
-              <div
-                class="animate-pulse bg-green-100 rounded w-6 h-4 mr-1.5"
-              ></div>
-              <div class="animate-pulse bg-green-100 rounded w-6 h-4"></div>
-            </div>
-          </div>
-        </div>
-        <div v-else-if="$fetchState.error" class="px-4 py-3">
-          목록을 불러올 수 없습니다! 관리자에게 문의해주세요.
-        </div>
         <NuxtLink
           v-for="(post, index) in posts"
-          v-else
           :key="post.id"
           :to="{
             name: 'seoulfree-id',
@@ -175,8 +150,8 @@
 </template>
 
 <script>
-import Search from './Search.vue'
-import Pagination from './Pagination.vue'
+import Search from '../board-list/Search.vue'
+import Pagination from '../board-list/Pagination.vue'
 
 export default {
   components: {
@@ -194,15 +169,11 @@ export default {
     }
   },
   async fetch() {
-    const param = {
-      params: {
-        page: this.pageNumber,
-      },
-    }
-
-    await this.$store.dispatch('seoulfree/getPostList', param).then(() => {
-      this.posts = this.$store.state.seoulfree.posts
-    })
+    await this.$store
+      .dispatch('seoulfree/getPostSearchList', this.$route.params.slug)
+      .then(() => {
+        this.posts = this.$store.state.seoulfree.searchedPosts
+      })
   },
   methods: {
     openSearchModal() {

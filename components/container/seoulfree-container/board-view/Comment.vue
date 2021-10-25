@@ -17,7 +17,7 @@
       </svg>
       <div class="ml-1">댓글</div>
       <div class="ml-1 text-green-900 font-semibold">
-        {{ comments.length }}
+        {{ comments.length + replys.length }}
       </div>
       <div>개</div>
     </div>
