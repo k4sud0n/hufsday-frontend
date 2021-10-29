@@ -1,7 +1,13 @@
 <template>
-  <div>user settings</div>
+  <User />
 </template>
 
 <script>
-export default {}
+import User from '@/components/user/index.vue'
+
+export default {
+  components: {
+    User,
+  },
+}
 </script>

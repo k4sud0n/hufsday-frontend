@@ -46,7 +46,7 @@
         "
       >
         <div>
-          <span class="font-semibold">익명의 컴퓨터공학부</span>님이
+          <span class="font-semibold">익명의 컴공생</span>님이
           <span class="font-semibold">"{{ notification.content }}"</span>라고
           알림을 보냈습니다.
         </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="md:ml-auto">
+  <form class="md:ml-auto" @submit.prevent="formSubmit">
     <nav
       class="
         hidden
@@ -57,9 +57,17 @@
         </svg>
       </div>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    formSubmit() {
+      this.$toast.info('현재 미완성된 기능입니다. 불편을 드려서 죄송합니다.', {
+        timeout: 3000,
+      })
+    },
+  },
+}
 </script>

@@ -35,6 +35,25 @@
           d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"
         ></path>
       </svg>
+      <div
+        v-if="$nuxt.$store.state.notification.notificationLength"
+        class="
+          absolute
+          ml-3
+          p-2
+          -mt-7
+          flex
+          rounded-full
+          h-3.5
+          w-3.5
+          items-center
+          justify-center
+          bg-red-500
+          text-white text-xs
+        "
+      >
+        {{ $nuxt.$store.state.notification.notificationLength }}
+      </div>
     </NuxtLink>
     <NuxtLink :to="{ name: 'user-message' }" class="py-4">
       <svg
@@ -50,6 +69,25 @@
           d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
         ></path>
       </svg>
+      <div
+        v-if="$nuxt.$store.state.message.messageLength"
+        class="
+          absolute
+          ml-3
+          p-2
+          -mt-7
+          flex
+          rounded-full
+          h-3.5
+          w-3.5
+          items-center
+          justify-center
+          bg-red-500
+          text-white text-xs
+        "
+      >
+        {{ $nuxt.$store.state.message.messageLength }}
+      </div>
     </NuxtLink>
     <NuxtLink :to="{ name: 'user' }" class="py-3">
       <div
@@ -78,6 +116,10 @@ export default {
     return {
       profileImageSrc: ProfileImage,
     }
+  },
+  async fetch() {
+    await this.$store.dispatch('notification/getNotificationLength')
+    await this.$store.dispatch('message/getMessageLength')
   },
 }
 </script>

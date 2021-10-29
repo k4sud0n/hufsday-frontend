@@ -4,11 +4,11 @@
     @submit.prevent="formSubmit"
   >
     <div
-      class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+      class="fixed inset-0 bg-gray-900 bg-opacity-20 transition-opacity"
       aria-hidden="true"
     ></div>
     <div
-      class="m-auto w-auto bg-white rounded overflow-hidden shadow-xl transform"
+      class="m-auto w-auto bg-white rounded overflow-hidden shadow transform"
     >
       <div class="flex items-center justify-between px-6 py-4">
         <span class="text-green-900 font-semibold text-sm"

@@ -77,6 +77,25 @@
         :to="{ name: 'user-message' }"
         class="flex flex-auto justify-center p-2 hover:bg-gray-50"
       >
+        <div
+          v-if="$nuxt.$store.state.message.messageLength"
+          class="
+            absolute
+            ml-2
+            p-2
+            -mt-1
+            flex
+            rounded-full
+            h-3.5
+            w-3.5
+            items-center
+            justify-center
+            bg-red-500
+            text-white text-xs
+          "
+        >
+          {{ $nuxt.$store.state.message.messageLength }}
+        </div>
         <svg
           class="w-5 h-5"
           fill="none"
@@ -131,6 +150,7 @@ export default {
   },
   async fetch() {
     await this.$store.dispatch('notification/getNotificationLength')
+    await this.$store.dispatch('message/getMessageLength')
   },
   methods: {
     async logout() {

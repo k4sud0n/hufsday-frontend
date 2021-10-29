@@ -54,7 +54,16 @@
             >
               추천
             </div>
-            <div class="text-xs text-gray-500 mr-2">쪽지</div>
+            <div
+              class="text-xs text-gray-500 mr-2 cursor-pointer"
+              @click="openMessageModal"
+            >
+              쪽지
+            </div>
+            <MessageModal
+              v-show="messageModal"
+              :receiver-id="comment.user_id"
+            />
             <div class="text-xs text-gray-500">신고</div>
           </div>
           <div v-else class="flex">
@@ -146,6 +155,7 @@
 <script>
 import _ from 'lodash'
 
+import MessageModal from '../../../message/MessageModal.vue'
 import Reply from './Reply.vue'
 import ReplyToggle from './ReplyToggle.vue'
 
@@ -153,6 +163,7 @@ export default {
   components: {
     Reply,
     ReplyToggle,
+    MessageModal,
   },
   props: {
     postId: {
@@ -171,6 +182,7 @@ export default {
       replys: [],
       content: '',
       activeItem: null,
+      messageModal: false,
     }
   },
   async fetch() {
@@ -183,6 +195,9 @@ export default {
       })
   },
   methods: {
+    openMessageModal() {
+      this.messageModal = !this.messageModal
+    },
     selectItem(i) {
       this.activeItem = i
     },

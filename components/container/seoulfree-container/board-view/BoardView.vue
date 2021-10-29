@@ -79,7 +79,16 @@
             </div>
           </div>
           <div v-if="postDetail.user_id !== user_id" class="flex text-xs">
-            <div class="text-xs text-gray-500 mr-2">쪽지</div>
+            <div
+              class="text-xs text-gray-500 mr-2 cursor-pointer"
+              @click="openMessageModal"
+            >
+              쪽지
+            </div>
+            <MessageModal
+              v-show="messageModal"
+              :receiver-id="postDetail.user_id"
+            />
             <div class="text-xs text-gray-500">신고</div>
           </div>
           <div v-else class="flex text-xs">
@@ -193,6 +202,7 @@
 <script>
 import Advertisement from '../../../advertisement/index.vue'
 import BoardList from '../board-list/BoardList.vue'
+import MessageModal from '../../../message/MessageModal.vue'
 import Comment from './Comment.vue'
 
 export default {
@@ -200,6 +210,7 @@ export default {
     Advertisement,
     Comment,
     BoardList,
+    MessageModal,
   },
   data() {
     return {
@@ -208,6 +219,7 @@ export default {
       postDetail: [],
       postThumbsUp: 0,
       postThumbsDown: 0,
+      messageModal: false,
     }
   },
   async fetch() {
@@ -218,6 +230,9 @@ export default {
     })
   },
   methods: {
+    openMessageModal() {
+      this.messageModal = !this.messageModal
+    },
     async updatePost() {
       await this.$router.push(`/seoulfree/${this.id}/update`)
     },

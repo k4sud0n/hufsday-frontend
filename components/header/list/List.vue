@@ -1,6 +1,6 @@
 <template>
   <div class="md:hidden">
-    <div class="mt-2">
+    <div class="mt-2" @click="openMobileMenu">
       <svg
         class="w-6 h-6"
         fill="currentColor"
@@ -14,9 +14,26 @@
         ></path>
       </svg>
     </div>
+    <MobileMenu v-show="mobileMenu" />
   </div>
 </template>
 
 <script>
-export default {}
+import MobileMenu from './MobileMenu.vue'
+
+export default {
+  components: {
+    MobileMenu,
+  },
+  data() {
+    return {
+      mobileMenu: false,
+    }
+  },
+  methods: {
+    openMobileMenu() {
+      this.mobileMenu = !this.mobileMenu
+    },
+  },
+}
 </script>
