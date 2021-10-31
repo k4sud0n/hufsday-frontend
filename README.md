@@ -2,7 +2,7 @@
 
 ## 참고
 
-refresh token: https://velog.io/@0307kwon/refresh-token-도입기
+refresh token: https://velog.io/@0307kwon/refresh-token-도입기  
 hufspace: https://www.instagram.com/hufspace_official/  
 jwt: https://medium.com/@ryanchenkie_40935/react-authentication-how-to-store-jwt-in-a-cookie-346519310e81  
 nuxt-auth: https://auth.nuxtjs.org/api/auth/
@@ -22,10 +22,11 @@ nuxt-auth: https://auth.nuxtjs.org/api/auth/
 - ~~쪽지~~
 - ~~모바일 레이아웃 수정~~
 - ~~학교 인증~~
-- 프로필 이미지 (dicebear)
+- 사이트 색 변경 (학교 색상)
 
 ## 추후 구현
 
+- 프로필 이미지 (dicebear)
 - 알림 socket.io 적용
 - 게시판 페이지네이션
 - 유저 개인설정 (닉네임 변경, 비밀번호 변경 기타등등)
@@ -33,7 +34,6 @@ nuxt-auth: https://auth.nuxtjs.org/api/auth/
 - 즐겨찾기
 - 쪽지 삭제
 - 쪽지 쿼리 최적화
-- 사이트 색 변경 (학교 색상)
 - 포인트 시스템 (기프티콘 구매)
 - 스트레스 테스트 (Artillery)
 - redis 캐시 적용

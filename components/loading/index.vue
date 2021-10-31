@@ -1,11 +1,18 @@
 <template>
-  <div v-if="loading" class="loading-page">
-    <p>Loading...</p>
+  <div v-if="loading">
+    <div class="inset-center z-50">
+      <HashLoader :color="'#36D7B7'" :size="80" :loading="loading" />
+    </div>
   </div>
 </template>
 
 <script>
+import { HashLoader } from '@saeris/vue-spinners'
+
 export default {
+  components: {
+    HashLoader,
+  },
   data: () => ({
     loading: false,
   }),
@@ -21,16 +28,10 @@ export default {
 </script>
 
 <style scoped>
-.loading-page {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  padding-top: 200px;
-  font-size: 30px;
-  font-family: sans-serif;
+.inset-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>
