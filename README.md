@@ -2,6 +2,7 @@
 
 ## 참고
 
+refresh token: https://velog.io/@0307kwon/refresh-token-도입기
 hufspace: https://www.instagram.com/hufspace_official/  
 jwt: https://medium.com/@ryanchenkie_40935/react-authentication-how-to-store-jwt-in-a-cookie-346519310e81  
 nuxt-auth: https://auth.nuxtjs.org/api/auth/
@@ -19,14 +20,15 @@ nuxt-auth: https://auth.nuxtjs.org/api/auth/
 - ~~댓글 추천 중복~~
 - ~~게시판 검색 구현~~
 - ~~쪽지~~
-- 모바일 레이아웃 수정
-- 유저 개인설정 (닉네임 변경, 비밀번호 변경 기타등등)
-- 로그인이 자꾸 풀리는 증상
+- ~~모바일 레이아웃 수정~~
+- ~~학교 인증~~
 - 프로필 이미지 (dicebear)
-- 학교 인증
 
 ## 추후 구현
 
+- 알림 socket.io 적용
+- 게시판 페이지네이션
+- 유저 개인설정 (닉네임 변경, 비밀번호 변경 기타등등)
 - 알림 20개 넘어갈시 자동 삭제
 - 즐겨찾기
 - 쪽지 삭제

@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="block lg:hidden mt-4 md:flex md:space-x-4">
+      <Popular />
+    </div>
     <div class="mt-4 md:flex md:space-x-4">
       <SeoulFree />
       <GlobalFree />
@@ -42,9 +45,11 @@ import Club from './club/Club.vue'
 import Promotion from './promotion/Promotion.vue'
 import BuyAndSell from './buyandsell/BuyAndSell.vue'
 import Book from './book/Book.vue'
+import Popular from '@/components/right-menu/popular/Popular.vue'
 
 export default {
   components: {
+    Popular,
     SeoulFree,
     GlobalFree,
     Wall,

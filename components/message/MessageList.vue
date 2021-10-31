@@ -102,7 +102,7 @@ export default {
         })
       } catch (e) {
         if (e.response.status === 404) {
-          this.$toast.info('현재 미완성된 기능입니다. 불편을 드려서 죄송합니다.', { timeout: 3000 })
+          this.$toast.info('현재 준비중인 기능입니다. 불편을 드려서 죄송합니다.', { timeout: 3000 })
         }
       }
     },

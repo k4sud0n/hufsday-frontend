@@ -42,7 +42,7 @@
       />
     </nav>
     <div class="md:hidden">
-      <div class="mt-2">
+      <div class="mt-2" @click="formSubmit">
         <svg
           class="w-6 h-6"
           fill="currentColor"
@@ -64,7 +64,7 @@
 export default {
   methods: {
     formSubmit() {
-      this.$toast.info('현재 미완성된 기능입니다. 불편을 드려서 죄송합니다.', {
+      this.$toast.info('현재 준비중인 기능입니다. 불편을 드려서 죄송합니다.', {
         timeout: 3000,
       })
     },

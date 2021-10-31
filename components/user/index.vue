@@ -39,25 +39,25 @@
               </div>
               <div class="pt-1">
                 <p class="font-light">학과</p>
-                <p class="font-medium tracking-more-wider">컴퓨터공학부</p>
+                <p class="font-medium tracking-more-wider">{{ user.major }}</p>
               </div>
               <div class="pt-6 pr-6">
                 <div class="flex justify-between">
                   <div class="">
                     <p class="font-light text-xs text-xs">캠퍼스</p>
                     <p class="font-medium tracking-wider text-sm">
-                      글로벌캠퍼스
+                      {{ user.campus }}
                     </p>
                   </div>
                   <div class="">
                     <p class="font-light text-xs">학번</p>
-                    <p class="font-medium tracking-wider text-sm">21학번</p>
+                    <p class="font-medium tracking-wider text-sm">{{ user.class_of }}학번</p>
                   </div>
 
                   <div class="">
                     <p class="font-light text-xs">가입일</p>
                     <p class="font-bold tracking-more-wider text-sm">
-                      2021/10/29
+                      {{ $dayjs(user.created).format('YYYY/MM/DD') }}
                     </p>
                   </div>
                 </div>

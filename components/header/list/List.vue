@@ -1,6 +1,6 @@
 <template>
   <div class="md:hidden">
-    <div class="mt-2" @click="openMobileMenu">
+    <div class="mt-1.5" @click="toggle">
       <svg
         class="w-6 h-6"
         fill="currentColor"
@@ -14,7 +14,8 @@
         ></path>
       </svg>
     </div>
-    <MobileMenu v-show="mobileMenu" />
+
+    <MobileMenu :open="open" />
   </div>
 </template>
 
@@ -27,12 +28,12 @@ export default {
   },
   data() {
     return {
-      mobileMenu: false,
+      open: false,
     }
   },
   methods: {
-    openMobileMenu() {
-      this.mobileMenu = !this.mobileMenu
+    toggle() {
+      this.open = !this.open
     },
   },
 }

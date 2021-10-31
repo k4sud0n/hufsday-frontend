@@ -25,6 +25,12 @@ export default {
     ],
   },
 
+  router: {
+    middleware: ['auth'],
+  },
+
+  loading: '~/components/loading/index.vue',
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
@@ -70,14 +76,14 @@ export default {
     },
   },
 
-  io: {
-    sockets: [
-      {
-        name: 'main',
-        url: 'http://localhost:3000',
-      },
-    ],
-  },
+  // io: {
+  //   sockets: [
+  //     {
+  //       name: 'main',
+  //       url: 'http://localhost:3000',
+  //     },
+  //   ],
+  // },
 
   dayjs: {
     locales: ['ko'],
