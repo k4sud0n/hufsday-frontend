@@ -1,7 +1,7 @@
 <template>
   <div v-if="loading">
     <div class="inset-center z-50">
-      <HashLoader :color="'#36D7B7'" :size="80" :loading="loading" />
+      <HashLoader :color="'#8d704f'" :size="80" :loading="loading" />
     </div>
   </div>
 </template>

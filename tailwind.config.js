@@ -3,6 +3,11 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      colors: {
+        sky: '#E2F1FF',
+        navy: '#002D56',
+        gold: '#8d704f',
+      },
       spacing: {
         5.5: '1.375rem',
         58: '14.5rem',

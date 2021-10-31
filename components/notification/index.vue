@@ -2,11 +2,11 @@
   <div class="flex-grow">
     <div class="bg-white rounded border border-gray-200">
       <div class="flex justify-between items-center border-b border-gray-200">
-        <div class="px-6 py-4 text-sm font-semibold text-green-900">
+        <div class="px-6 py-4 text-sm font-semibold text-navy">
           내 알림 목록
         </div>
         <div
-          class="px-6 py-4 text-sm text-green-900 cursor-pointer"
+          class="px-6 py-4 text-sm text-navy cursor-pointer"
           @click="deleteNotification"
         >
           <svg

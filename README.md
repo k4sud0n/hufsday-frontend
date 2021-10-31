@@ -26,6 +26,7 @@ nuxt-auth: https://auth.nuxtjs.org/api/auth/
 
 ## 추후 구현
 
+- 다크모드
 - 프로필 이미지 (dicebear)
 - 알림 socket.io 적용
 - 게시판 페이지네이션

@@ -16,7 +16,7 @@
         ></path>
       </svg>
       <div class="ml-1">댓글</div>
-      <div class="ml-1 text-green-900 font-semibold">
+      <div class="ml-1 text-navy font-semibold">
         {{ comments.length + replys.length }}
       </div>
       <div>개</div>
@@ -30,7 +30,7 @@
         <div v-if="comment.content !== '삭제된 댓글입니다.'" class="flex">
           <div
             v-if="postCreatorId == comment.user_id"
-            class="text-xs font-semibold text-green-900"
+            class="text-xs font-semibold text-navy"
           >
             익명의 컴공생(글쓴이)
           </div>
@@ -87,7 +87,7 @@
       </div>
       <div
         v-if="comment.thumbs_up > 0"
-        class="flex text-xs mt-1.5 text-green-900"
+        class="flex text-xs mt-1.5 text-navy"
       >
         <div class="flex items-center mr-1">
           <svg
@@ -131,7 +131,7 @@
         @input="changeContent"
       />
       <button
-        class="px-4 border-l border-gray-200 bg-green-900 overflow-hidden"
+        class="px-4 border-l border-gray-200 bg-navy overflow-hidden"
       >
         <svg
           class="w-4 h-4 text-white"

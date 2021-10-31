@@ -6,7 +6,7 @@
         px-3
         py-2
         border-b border-gray-200
-        text-green-900
+        text-navy
         font-semibold
       "
     >
@@ -16,10 +16,10 @@
           ml-auto
           rounded
           bg-transparent
-          border border-green-900
-          hover:bg-green-900 hover:text-white
-          active:bg-green-800
-          text-green-900
+          border border-navy
+          hover:bg-navy hover:text-white
+          active:bg-navy
+          text-navy
           font-semibold
           px-3
           py-1

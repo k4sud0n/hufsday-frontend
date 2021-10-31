@@ -3,10 +3,10 @@
     <div class="bg-white rounded mt-4 border border-gray-200 overflow-hidden">
       <div class="p-5 border-b border-gray-200">
         <div v-if="$fetchState.pending" class="flex">
-          <div class="animate-pulse bg-green-100 rounded w-8 h-7 mr-1.5"></div>
-          <div class="animate-pulse bg-green-100 rounded w-16 h-7 mr-1.5"></div>
-          <div class="animate-pulse bg-green-100 rounded w-8 h-7 mr-1.5"></div>
-          <div class="animate-pulse bg-green-100 rounded w-1/3 h-7"></div>
+          <div class="animate-pulse bg-sky rounded w-8 h-7 mr-1.5"></div>
+          <div class="animate-pulse bg-sky rounded w-16 h-7 mr-1.5"></div>
+          <div class="animate-pulse bg-sky rounded w-8 h-7 mr-1.5"></div>
+          <div class="animate-pulse bg-sky rounded w-1/3 h-7"></div>
         </div>
         <div v-else-if="$fetchState.error" class="text-xl font-bold">
           이런! 에러가 발생했습니다
@@ -112,10 +112,10 @@
       </div>
       <div class="mt-3 p-5 text-sm border-b border-gray-200">
         <div v-if="$fetchState.pending">
-          <div class="animate-pulse bg-green-100 rounded w-2/4 h-4 mb-2"></div>
-          <div class="animate-pulse bg-green-100 rounded w-3/4 h-4 mb-2"></div>
-          <div class="animate-pulse bg-green-100 rounded w-1/4 h-4 mb-2"></div>
-          <div class="animate-pulse bg-green-100 rounded w-2/4 h-4"></div>
+          <div class="animate-pulse bg-sky rounded w-2/4 h-4 mb-2"></div>
+          <div class="animate-pulse bg-sky rounded w-3/4 h-4 mb-2"></div>
+          <div class="animate-pulse bg-sky rounded w-1/4 h-4 mb-2"></div>
+          <div class="animate-pulse bg-sky rounded w-2/4 h-4"></div>
         </div>
         <div v-else-if="$fetchState.error">관리자에게 문의해주세요.</div>
         <span v-else class="whitespace-pre-line">
@@ -130,10 +130,10 @@
               py-2
               rounded
               bg-transparent
-              border border-green-900
-              hover:bg-green-900 hover:text-white
-              active:bg-green-800
-              text-green-900
+              border border-navy
+              hover:bg-navy hover:text-white
+              active:bg-navy
+              text-navy
               mr-2
               cursor-pointer
             "
@@ -165,10 +165,10 @@
               py-2
               rounded
               bg-transparent
-              border border-green-900
-              hover:bg-green-900 hover:text-white
-              active:bg-green-800
-              text-green-900
+              border border-navy
+              hover:bg-navy hover:text-white
+              active:bg-navy
+              text-navy
               cursor-pointer
             "
             @click="thumbsDown"

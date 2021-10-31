@@ -6,7 +6,7 @@
           class="
             w-16
             h-16
-            bg-green-100
+            bg-sky
             rounded
             flex
             justify-center
@@ -14,7 +14,7 @@
           "
         >
           <svg
-            class="w-9 h-9 text-green-900"
+            class="w-9 h-9 text-navy"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -29,7 +29,7 @@
           </svg>
         </div>
         <div
-          class="flex justify-center mt-1 text-green-900 font-semibold text-sm"
+          class="flex justify-center mt-1 text-navy font-semibold text-sm"
         >
           시간표
         </div>
@@ -39,7 +39,7 @@
           class="
             w-16
             h-16
-            bg-green-100
+            bg-sky
             rounded
             flex
             justify-center
@@ -47,7 +47,7 @@
           "
         >
           <svg
-            class="w-9 h-9 text-green-900"
+            class="w-9 h-9 text-navy"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -62,7 +62,7 @@
           </svg>
         </div>
         <div
-          class="flex justify-center mt-1 text-green-900 font-semibold text-sm"
+          class="flex justify-center mt-1 text-navy font-semibold text-sm"
         >
           열람실
         </div>
@@ -72,7 +72,7 @@
           class="
             w-16
             h-16
-            bg-green-100
+            bg-sky
             rounded
             flex
             justify-center
@@ -80,7 +80,7 @@
           "
         >
           <svg
-            class="w-9 h-9 text-green-900"
+            class="w-9 h-9 text-navy"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -95,7 +95,7 @@
           </svg>
         </div>
         <div
-          class="flex justify-center mt-1 text-green-900 font-semibold text-sm"
+          class="flex justify-center mt-1 text-navy font-semibold text-sm"
         >
           학생식당
         </div>
@@ -105,7 +105,7 @@
           class="
             w-16
             h-16
-            bg-green-100
+            bg-sky
             rounded
             flex
             justify-center
@@ -113,7 +113,7 @@
           "
         >
           <svg
-            class="w-9 h-9 text-green-900"
+            class="w-9 h-9 text-navy"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -131,7 +131,7 @@
           </svg>
         </div>
         <div
-          class="flex justify-center mt-1 text-green-900 font-semibold text-sm"
+          class="flex justify-center mt-1 text-navy font-semibold text-sm"
         >
           셔틀
         </div>
@@ -141,7 +141,7 @@
           class="
             w-16
             h-16
-            bg-green-100
+            bg-sky
             rounded
             flex
             justify-center
@@ -149,7 +149,7 @@
           "
         >
           <svg
-            class="w-9 h-9 text-green-900"
+            class="w-9 h-9 text-navy"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -164,7 +164,7 @@
           </svg>
         </div>
         <div
-          class="flex justify-center mt-1 text-green-900 font-semibold text-sm"
+          class="flex justify-center mt-1 text-navy font-semibold text-sm"
         >
           교내공지
         </div>

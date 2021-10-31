@@ -1,6 +1,6 @@
 <template>
   <div class="rounded border border-gray-200 overflow-hidden">
-    <div class="bg-green-900 text-white p-2.5">
+    <div class="bg-navy text-white p-2.5">
       <svg
         class="w-5 h-5 float-left"
         fill="none"
@@ -18,15 +18,15 @@
       <div class="ml-6 text-sm">메뉴</div>
     </div>
 
-    <div class="p-2 bg-green-100">
-      <div class="text-green-900 font-medium text-sm">COMMUNITY</div>
+    <div class="p-2 bg-sky">
+      <div class="text-navy font-medium text-sm">COMMUNITY</div>
     </div>
 
     <div v-for="menu in splitedCommunityMenus" :key="menu">
       <NuxtLink :to="menu.link">
         <div class="p-1.5 bg-white border-b border-gray-200 hover:bg-gray-50">
           <svg
-            class="w-4 h-4 text-green-900 float-left mt-0.5"
+            class="w-4 h-4 text-navy float-left mt-0.5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -44,8 +44,8 @@
       </NuxtLink>
     </div>
 
-    <div class="p-2 bg-green-100">
-      <div class="text-green-900 font-medium text-sm">LIFE</div>
+    <div class="p-2 bg-sky">
+      <div class="text-navy font-medium text-sm">LIFE</div>
     </div>
 
     <div
@@ -54,7 +54,7 @@
       class="p-1.5 bg-white border-b border-gray-200 hover:bg-gray-50"
     >
       <svg
-        class="w-4 h-4 text-green-900 float-left mt-0.5"
+        class="w-4 h-4 text-navy float-left mt-0.5"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -70,8 +70,8 @@
       <div class="text-sm">{{ menu.title }}</div>
     </div>
 
-    <div class="p-2 bg-green-100">
-      <div class="text-green-900 font-medium text-sm">
+    <div class="p-2 bg-sky">
+      <div class="text-navy font-medium text-sm">
         STUDY
       </div>
     </div>
@@ -82,7 +82,7 @@
       class="p-1.5 bg-white border-b border-gray-200 hover:bg-gray-50"
     >
       <svg
-        class="w-4 h-4 text-green-900 float-left mt-0.5"
+        class="w-4 h-4 text-navy float-left mt-0.5"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -98,8 +98,8 @@
       <div class="text-sm">{{ menu.title }}</div>
     </div>
 
-    <div class="p-2 bg-green-100">
-      <div class="text-green-900 font-medium text-sm">
+    <div class="p-2 bg-sky">
+      <div class="text-navy font-medium text-sm">
         HOBBY
       </div>
     </div>
@@ -113,7 +113,7 @@
       ]"
     >
       <svg
-        class="w-4 h-4 text-green-900 float-left mt-0.5"
+        class="w-4 h-4 text-navy float-left mt-0.5"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

@@ -15,18 +15,18 @@
           p-4
           border border-gray-200
           bg-white
-          border-green-900
+          border-navy
           overflow-auto
         "
         style="width: 21rem"
       >
-        <div class="font-semibold text-green-900 text-sm">인증 안내</div>
+        <div class="font-semibold text-navy text-sm">인증 안내</div>
         <div class="mt-1.5">
           HUFSDAY는
-          <a href="http://wis.hufs.ac.kr" class="text-green-900">
+          <a href="http://wis.hufs.ac.kr" class="text-navy">
             종합정보시스템(WIS)
           </a>
-          으로 인증을 받으셔야 이용할 수 있습니다.
+          인증을 받아야 이용할 수 있습니다.
         </div>
         <div class="mt-1.5">
           회원님이 입력하신 종합정보시스템 아이디와 비밀번호는 절대 HUFSDAY
@@ -48,7 +48,7 @@
             pt-11
             pb-6
             border border-gray-200
-            focus:border-green-900 focus:outline-none
+            focus:border-navy focus:outline-none
           "
           type="text"
           required
@@ -68,7 +68,7 @@
             pt-11
             pb-6
             border border-gray-200
-            focus:border-green-900 focus:outline-none
+            focus:border-navy focus:outline-none
           "
           type="password"
           required
@@ -84,7 +84,7 @@
           text-sm
           rounded
           border border-gray-200
-          bg-green-900
+          bg-navy
           p-3
           cursor-pointer
         "
@@ -95,7 +95,7 @@
         회원님, 인증에 문제가 있나요?
         <a
           href="mailto:contact@hufsday.com?subject=HUFSDAY 인증 문의"
-          class="ml-0.5 text-green-900"
+          class="ml-0.5 text-navy"
         >
           문의하기
         </a>

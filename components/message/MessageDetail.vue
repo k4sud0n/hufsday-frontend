@@ -4,7 +4,7 @@
       <div class="flex justify-between items-center border-b border-gray-200">
         <div class="px-5 py-3 text-sm flex items-center">
           <svg
-            class="w-5 h-5 text-green-900 mr-1"
+            class="w-5 h-5 text-navy mr-1"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -17,10 +17,10 @@
               d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
             ></path>
           </svg>
-          <span class="font-semibold text-green-900">안내</span>
+          <span class="font-semibold text-navy">안내</span>
         </div>
 
-        <div class="px-5 py-3 text-sm text-green-900 flex items-center">
+        <div class="px-5 py-3 text-sm text-navy flex items-center">
           <div @click="openMessageModal">
             <svg
               class="w-5 h-5 cursor-pointer mr-2"
@@ -85,7 +85,7 @@
           >
             보낸 쪽지
           </span>
-          <span v-else class="font-semibold text-green-900">받은 쪽지</span>
+          <span v-else class="font-semibold text-navy">받은 쪽지</span>
         </div>
         <div class="px-5 py-3 text-xs text-gray-500">
           {{ $dayjs(message.created).format('YYYY/MM/DD HH:mm') }}

@@ -1,7 +1,7 @@
 <template>
   <div class="flex-1 bg-white rounded border border-gray-200 mt-4">
     <div
-      class="px-3 py-2.5 border-b border-gray-200 text-green-900 font-semibold"
+      class="px-3 py-2.5 border-b border-gray-200 text-navy font-semibold"
     >
       <div class="text-sm">최근 강의평가</div>
     </div>

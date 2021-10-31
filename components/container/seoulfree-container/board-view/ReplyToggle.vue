@@ -21,7 +21,7 @@
         @input="changeContent"
       />
       <button
-        class="px-4 border-l border-gray-200 bg-green-900 overflow-hidden"
+        class="px-4 border-l border-gray-200 bg-navy overflow-hidden"
       >
         <svg
           class="w-4 h-4 text-white"

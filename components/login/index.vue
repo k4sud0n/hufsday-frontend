@@ -19,7 +19,7 @@
             pt-11
             pb-6
             border border-gray-200
-            focus:border-green-900 focus:outline-none
+            focus:border-navy focus:outline-none
           "
           type="text"
           required
@@ -39,7 +39,7 @@
             pt-11
             pb-6
             border border-gray-200
-            focus:border-green-900 focus:outline-none
+            focus:border-navy focus:outline-none
           "
           type="password"
           required
@@ -52,7 +52,7 @@
           @click="checkLoggedIn"
         >
           <svg
-            class="w-4 h-4 mr-0.5 text-green-900"
+            class="w-4 h-4 mr-0.5 text-navy"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -99,7 +99,7 @@
           text-sm
           rounded
           border border-gray-200
-          bg-green-900
+          bg-navy
           p-3
           cursor-pointer
         "
@@ -108,7 +108,7 @@
       </button>
       <div class="flex justify-center mt-5 text-xs text-gray-500">
         아직 HUFSDAY 계정이 없으신가요?
-        <NuxtLink :to="{ name: 'register' }" class="ml-0.5 text-green-900">
+        <NuxtLink :to="{ name: 'register' }" class="ml-0.5 text-navy">
           회원가입하기
         </NuxtLink>
       </div>

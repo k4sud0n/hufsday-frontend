@@ -19,7 +19,7 @@
             pt-11
             pb-6
             border border-gray-200
-            focus:border-green-900 focus:outline-none
+            focus:border-navy focus:outline-none
           "
           type="text"
           required
@@ -39,7 +39,7 @@
             pt-11
             pb-6
             border border-gray-200
-            focus:border-green-900 focus:outline-none
+            focus:border-navy focus:outline-none
           "
           type="password"
           required
@@ -57,7 +57,7 @@
             pt-11
             pb-6
             border border-gray-200
-            focus:border-green-900 focus:outline-none
+            focus:border-navy focus:outline-none
           "
           type="text"
           required
@@ -73,7 +73,7 @@
           text-sm
           rounded
           border border-gray-200
-          bg-green-900
+          bg-navy
           p-3
           cursor-pointer
         "

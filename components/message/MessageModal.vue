@@ -11,10 +11,10 @@
       class="m-auto w-auto bg-white rounded overflow-hidden shadow transform"
     >
       <div class="flex items-center justify-between px-6 py-4">
-        <span class="text-green-900 font-semibold text-sm">쪽지</span>
+        <span class="text-navy font-semibold text-sm">쪽지</span>
         <span class="cursor-pointer" @click="closeMessageModal">
           <svg
-            class="w-5 h-5 text-green-900 font-semibold text-sm"
+            class="w-5 h-5 text-navy font-semibold text-sm"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -48,7 +48,7 @@
         />
       </div>
       <div class="px-6 pb-4">
-        <button class="rounded bg-green-900 text-white text-sm w-16 h-10">
+        <button class="rounded bg-navy text-white text-sm w-16 h-10">
           보내기
         </button>
       </div>

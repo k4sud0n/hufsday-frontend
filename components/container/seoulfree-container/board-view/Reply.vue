@@ -16,7 +16,7 @@
         <div v-if="reply.content !== '삭제된 댓글입니다.'" class="flex">
           <div
             v-if="postCreatorId == reply.user_id"
-            class="text-xs font-semibold text-green-900"
+            class="text-xs font-semibold text-navy"
           >
             익명의 컴공생(글쓴이)
           </div>
@@ -53,7 +53,7 @@
     <div class="text-sm mt-1.5">{{ reply.content }}</div>
     <div
       v-if="reply.thumbs_up > 0 && reply.content !== '삭제된 댓글입니다.'"
-      class="flex text-xs mt-1.5 text-green-900"
+      class="flex text-xs mt-1.5 text-navy"
     >
       <div class="flex items-center mr-1">
         <svg

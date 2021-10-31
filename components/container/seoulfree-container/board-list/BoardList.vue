@@ -4,7 +4,7 @@
       <div class="p-4 border-b border-gray-200">
         <NuxtLink
           :to="{ name: 'seoulfree' }"
-          class="text-sm font-semibold text-green-900"
+          class="text-sm font-semibold text-navy"
         >
           서울캠 자유게시판
         </NuxtLink>
@@ -16,7 +16,7 @@
             <span>
               <span class="cursor-pointer" @click="openSearchModal">
                 <svg
-                  class="w-5 h-5 text-green-900"
+                  class="w-5 h-5 text-navy"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -33,7 +33,7 @@
               <Search v-show="searchModal" />
             </span>
             <svg
-              class="w-5 h-5 ml-2 text-green-900"
+              class="w-5 h-5 ml-2 text-navy"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -50,7 +50,7 @@
 
           <NuxtLink :to="{ name: 'seoulfree-create' }">
             <svg
-              class="w-5 h-5 text-green-900"
+              class="w-5 h-5 text-navy"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -76,18 +76,18 @@
               index == posts.length - 1 ? null : 'border-b border-gray-200',
             ]"
           >
-            <div class="animate-pulse bg-green-100 rounded w-3/5 h-4"></div>
+            <div class="animate-pulse bg-sky rounded w-3/5 h-4"></div>
             <div class="flex mt-1">
               <div
-                class="animate-pulse bg-green-100 rounded w-8 h-4 mr-1.5"
+                class="animate-pulse bg-sky rounded w-8 h-4 mr-1.5"
               ></div>
               <div
-                class="animate-pulse bg-green-100 rounded w-6 h-4 mr-1.5"
+                class="animate-pulse bg-sky rounded w-6 h-4 mr-1.5"
               ></div>
               <div
-                class="animate-pulse bg-green-100 rounded w-6 h-4 mr-1.5"
+                class="animate-pulse bg-sky rounded w-6 h-4 mr-1.5"
               ></div>
-              <div class="animate-pulse bg-green-100 rounded w-6 h-4"></div>
+              <div class="animate-pulse bg-sky rounded w-6 h-4"></div>
             </div>
           </div>
         </div>
@@ -115,7 +115,7 @@
               <span class="break-all">{{ post.title }}</span>
               <span
                 v-if="post.number_of_comments > 0"
-                class="-mr-0.5 font-semibold text-green-900"
+                class="-mr-0.5 font-semibold text-navy"
               >
                 ({{ post.number_of_comments }})
               </span>

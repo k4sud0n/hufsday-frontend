@@ -12,7 +12,7 @@
     >
       <div class="absolute mt-2.5 ml-3.5">
         <svg
-          class="w-5 h-5 text-gray-200 focus:text-green-900"
+          class="w-5 h-5 text-gray-200 focus:text-navy"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -37,7 +37,7 @@
           border border-gray-200
           text-sm
           p-3
-          focus:border-green-900 focus:outline-none
+          focus:border-navy focus:outline-none
         "
       />
     </nav>

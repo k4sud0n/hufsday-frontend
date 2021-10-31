@@ -13,7 +13,7 @@
           ]"
         >
           <svg
-            class="w-4 h-4 text-green-900 float-left mt-0.5"
+            class="w-4 h-4 text-navy float-left mt-0.5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
