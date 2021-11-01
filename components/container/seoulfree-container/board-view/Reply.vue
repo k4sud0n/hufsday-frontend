@@ -18,9 +18,11 @@
             v-if="postCreatorId == reply.user_id"
             class="text-xs font-semibold text-navy"
           >
-            익명의 컴공생(글쓴이)
+            익명의 {{ reply.major }}생(글쓴이)
           </div>
-          <div v-else class="text-xs font-semibold">익명의 컴공생</div>
+          <div v-else class="text-xs font-semibold">
+            익명의 {{ reply.major }}생
+          </div>
           <div class="text-xs ml-1 text-gray-500">
             {{ $dayjs(reply.created).fromNow() }}
           </div>

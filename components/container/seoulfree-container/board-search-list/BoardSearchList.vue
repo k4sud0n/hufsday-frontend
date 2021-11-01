@@ -96,7 +96,7 @@
               </span>
             </div>
             <div class="flex mt-1 items-center">
-              <div class="text-xs mr-1.5">익명의 컴공생</div>
+              <div class="text-xs mr-1.5">익명의 {{ post.major }}생</div>
               <div class="text-xs text-gray-500 mr-1.5">
                 {{ $dayjs(post.created).fromNow() }}
               </div>

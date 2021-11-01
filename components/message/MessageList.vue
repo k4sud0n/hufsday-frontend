@@ -50,7 +50,7 @@
         ]"
       >
         <div class="flex items-center">
-          <span class="font-semibold">익명의 컴공생</span>:
+          <span class="font-semibold">익명</span>:
           <span class="ml-0.5">{{ message.content }}</span>
           <div
             v-if="message.unreaded === '1'"

@@ -78,15 +78,9 @@
           >
             <div class="animate-pulse bg-sky rounded w-3/5 h-4"></div>
             <div class="flex mt-1">
-              <div
-                class="animate-pulse bg-sky rounded w-8 h-4 mr-1.5"
-              ></div>
-              <div
-                class="animate-pulse bg-sky rounded w-6 h-4 mr-1.5"
-              ></div>
-              <div
-                class="animate-pulse bg-sky rounded w-6 h-4 mr-1.5"
-              ></div>
+              <div class="animate-pulse bg-sky rounded w-8 h-4 mr-1.5"></div>
+              <div class="animate-pulse bg-sky rounded w-6 h-4 mr-1.5"></div>
+              <div class="animate-pulse bg-sky rounded w-6 h-4 mr-1.5"></div>
               <div class="animate-pulse bg-sky rounded w-6 h-4"></div>
             </div>
           </div>
@@ -121,7 +115,7 @@
               </span>
             </div>
             <div class="flex mt-1 items-center">
-              <div class="text-xs mr-1.5">익명의 컴공생</div>
+              <div class="text-xs mr-1.5">익명의 {{ post.major }}생</div>
               <div class="text-xs text-gray-500 mr-1.5">
                 {{ $dayjs(post.created).fromNow() }}
               </div>

@@ -32,9 +32,11 @@
             v-if="postCreatorId == comment.user_id"
             class="text-xs font-semibold text-navy"
           >
-            익명의 컴공생(글쓴이)
+            익명의 {{ comment.major }}생(글쓴이)
           </div>
-          <div v-else class="text-xs font-semibold">익명의 컴공생</div>
+          <div v-else class="text-xs font-semibold">
+            익명의 {{ comment.major }}생
+          </div>
           <div class="text-xs ml-1 text-gray-500">
             {{ $dayjs(comment.created).fromNow() }}
           </div>
@@ -85,10 +87,7 @@
       <div class="text-sm mt-1.5">
         {{ comment.content }}
       </div>
-      <div
-        v-if="comment.thumbs_up > 0"
-        class="flex text-xs mt-1.5 text-navy"
-      >
+      <div v-if="comment.thumbs_up > 0" class="flex text-xs mt-1.5 text-navy">
         <div class="flex items-center mr-1">
           <svg
             class="w-3.5 h-3.5"
@@ -130,9 +129,7 @@
         required
         @input="changeContent"
       />
-      <button
-        class="px-4 border-l border-gray-200 bg-navy overflow-hidden"
-      >
+      <button class="px-4 border-l border-gray-200 bg-navy overflow-hidden">
         <svg
           class="w-4 h-4 text-white"
           fill="none"

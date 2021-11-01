@@ -11,6 +11,7 @@
             flex
             justify-center
             items-center
+            border border-navy border-opacity-10
           "
         >
           <svg
@@ -28,9 +29,7 @@
             ></path>
           </svg>
         </div>
-        <div
-          class="flex justify-center mt-1 text-navy font-semibold text-sm"
-        >
+        <div class="flex justify-center mt-1 text-navy font-semibold text-sm">
           시간표
         </div>
       </div>
@@ -44,6 +43,7 @@
             flex
             justify-center
             items-center
+            border border-navy border-opacity-10
           "
         >
           <svg
@@ -61,9 +61,7 @@
             ></path>
           </svg>
         </div>
-        <div
-          class="flex justify-center mt-1 text-navy font-semibold text-sm"
-        >
+        <div class="flex justify-center mt-1 text-navy font-semibold text-sm">
           열람실
         </div>
       </div>
@@ -77,6 +75,7 @@
             flex
             justify-center
             items-center
+            border border-navy border-opacity-10
           "
         >
           <svg
@@ -94,9 +93,7 @@
             ></path>
           </svg>
         </div>
-        <div
-          class="flex justify-center mt-1 text-navy font-semibold text-sm"
-        >
+        <div class="flex justify-center mt-1 text-navy font-semibold text-sm">
           학생식당
         </div>
       </div>
@@ -110,6 +107,7 @@
             flex
             justify-center
             items-center
+            border border-navy border-opacity-10
           "
         >
           <svg
@@ -130,9 +128,7 @@
             ></path>
           </svg>
         </div>
-        <div
-          class="flex justify-center mt-1 text-navy font-semibold text-sm"
-        >
+        <div class="flex justify-center mt-1 text-navy font-semibold text-sm">
           셔틀
         </div>
       </div>
@@ -146,6 +142,7 @@
             flex
             justify-center
             items-center
+            border border-navy border-opacity-10
           "
         >
           <svg
@@ -163,9 +160,7 @@
             ></path>
           </svg>
         </div>
-        <div
-          class="flex justify-center mt-1 text-navy font-semibold text-sm"
-        >
+        <div class="flex justify-center mt-1 text-navy font-semibold text-sm">
           교내공지
         </div>
       </div>

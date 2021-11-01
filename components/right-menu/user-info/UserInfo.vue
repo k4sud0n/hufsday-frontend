@@ -14,7 +14,7 @@
       <div class="flex justify-center text-sm mt-2">
         {{ nickname }}
       </div>
-      <div class="flex justify-center text-sm text-gray-500">컴퓨터공학부</div>
+      <div class="flex justify-center text-sm text-gray-500">{{ major }}</div>
       <div class="flex justify-center">
         <button
           class="
@@ -145,6 +145,7 @@
 export default {
   data() {
     return {
+      major: this.$auth.user.major,
       nickname: this.$auth.user.nickname,
     }
   },

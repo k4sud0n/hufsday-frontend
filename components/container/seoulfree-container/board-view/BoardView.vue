@@ -15,7 +15,7 @@
         <div class="flex justify-between mt-3">
           <div class="flex">
             <div class="flex items-center text-xs mr-1.5 font-semibold">
-              익명의 컴공생
+              익명의 {{ postDetail.major }}생
             </div>
             <div class="flex items-center text-xs mr-1.5 text-gray-500">
               {{ $dayjs(postDetail.created).fromNow() }}
