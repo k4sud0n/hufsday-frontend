@@ -40,6 +40,7 @@
         @click="
           readNotification(
             notification.readed,
+            notification.board,
             notification.id,
             notification.post_id
           )
@@ -78,13 +79,13 @@ export default {
     })
   },
   methods: {
-    async readNotification(readed, commentId, postId) {
+    async readNotification(readed, board, commentId, postId) {
       if (!readed) {
         await this.$client.patch(`/api/notification/${commentId}`).then(() => {
-          this.$router.push(`/seoulfree/${postId}`)
+          this.$router.push(`/${board}/${postId}`)
         })
       } else {
-        this.$router.push(`/seoulfree/${postId}`)
+        this.$router.push(`/${board}/${postId}`)
       }
     },
     async deleteNotification() {

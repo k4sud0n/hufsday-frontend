@@ -225,12 +225,12 @@ export default {
   async fetch() {
     try {
       await this.$store
-        .dispatch('seoulfree/getPostDetail', this.id)
+        .dispatch('globalfree/getPostDetail', this.id)
         .then(() => {
-          this.postDetail = this.$store.state.seoulfree.postDetail
-          this.postThumbsUp = this.$store.state.seoulfree.postDetail.thumbs_up
+          this.postDetail = this.$store.state.globalfree.postDetail
+          this.postThumbsUp = this.$store.state.globalfree.postDetail.thumbs_up
           this.postThumbsDown =
-            this.$store.state.seoulfree.postDetail.thumbs_down
+            this.$store.state.globalfree.postDetail.thumbs_down
         })
     } catch (error) {
       this.$nuxt.error({
@@ -244,24 +244,26 @@ export default {
       this.messageModal = !this.messageModal
     },
     async updatePost() {
-      await this.$router.push(`/seoulfree/${this.id}/update`)
+      await this.$router.push(`/globalfree/${this.id}/update`)
     },
     async deletePost() {
-      await this.$client.delete(`/api/seoulfree/${this.id}/delete`).then(() => {
-        this.$toast.success('삭제 성공!', { timeout: 3000 })
-        this.$router.push({ name: 'seoulfree' })
-      })
+      await this.$client
+        .delete(`/api/globalfree/${this.id}/delete`)
+        .then(() => {
+          this.$toast.success('삭제 성공!', { timeout: 3000 })
+          this.$router.push({ name: 'globalfree' })
+        })
     },
     async thumbsUp() {
       try {
         await this.$client
-          .post(`/api/seoulfree/${this.id}/thumbs_up`)
+          .post(`/api/globalfree/${this.id}/thumbs_up`)
           .then(() => {
             this.$store
-              .dispatch('seoulfree/getPostDetail', this.id)
+              .dispatch('globalfree/getPostDetail', this.id)
               .then(() => {
                 this.postThumbsUp =
-                  this.$store.state.seoulfree.postDetail.thumbs_up
+                  this.$store.state.globalfree.postDetail.thumbs_up
               })
             this.$toast.success('글을 추천했습니다', { timeout: 3000 })
           })
@@ -280,13 +282,13 @@ export default {
     async thumbsDown() {
       try {
         await this.$client
-          .post(`/api/seoulfree/${this.id}/thumbs_down`)
+          .post(`/api/globalfree/${this.id}/thumbs_down`)
           .then(() => {
             this.$store
-              .dispatch('seoulfree/getPostDetail', this.id)
+              .dispatch('globalfree/getPostDetail', this.id)
               .then(() => {
                 this.postThumbsDown =
-                  this.$store.state.seoulfree.postDetail.thumbs_down
+                  this.$store.state.globalfree.postDetail.thumbs_down
               })
             this.$toast.success('글을 비추천했습니다', { timeout: 3000 })
           })

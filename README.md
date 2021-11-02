@@ -2,6 +2,7 @@
 
 ## 참고
 
+pm2: https://jybaek.tistory.com/716  
 refresh token: https://velog.io/@0307kwon/refresh-token-도입기  
 hufspace: https://www.instagram.com/hufspace_official/  
 jwt: https://medium.com/@ryanchenkie_40935/react-authentication-how-to-store-jwt-in-a-cookie-346519310e81  
@@ -24,6 +25,7 @@ nuxt-auth: https://auth.nuxtjs.org/api/auth/
 - ~~학교 인증~~
 - ~~사이트 색 변경 (학교 색상)~~
 - 프로필 이미지 (dicebear)
+- 쪽지 삭제
 
 ## 추후 구현
 
@@ -33,7 +35,6 @@ nuxt-auth: https://auth.nuxtjs.org/api/auth/
 - 유저 개인설정 (닉네임 변경, 비밀번호 변경 기타등등)
 - 알림 20개 넘어갈시 자동 삭제
 - 즐겨찾기
-- 쪽지 삭제
 - 쪽지 쿼리 최적화
 - 포인트 시스템 (기프티콘 구매)
 - 스트레스 테스트 (Artillery)
