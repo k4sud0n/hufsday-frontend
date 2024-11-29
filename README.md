@@ -1,4 +1,4 @@
-# hufsday-front
+# hufsday-frontend
 
 ![image](https://i.imgur.com/oYbBsmK.jpeg)
 
